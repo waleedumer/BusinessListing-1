@@ -275,10 +275,10 @@ isset($search_string) ? "": $search_string = "";
                             </a>
                             <h3 class="ellipsis">
                                 <a href="<?php echo route('listings.show'($listing['id'])); ?>"><?php echo $listing['name']; ?></a>
-                                <?php $claiming_status = $this->db->get_where('claimed_listing', array('listing_id' => $listing['id']))->row('status'); ?>
+                                <?php $claiming_status = $listing->claimed_listing->status; ?>
                                 <?php if($claiming_status == 1): ?>
-                                <span class="claimed_icon" data-toggle="tooltip" data-placement="right" title="<?php echo get_phrase('this_listing_is_verified'); ?>">
-						                	<img src="<?php echo base_url('assets/frontend/images/verified.png'); ?>" width="23" />
+                                <span class="claimed_icon" data-toggle="tooltip" data-placement="right" title="This listing is verified">
+						                	<img src="<?php echo asset('assets/frontend/images/verified.png'); ?>" width="23" />
 						                </span>
                                 <?php endif; ?>
                             </h3>
