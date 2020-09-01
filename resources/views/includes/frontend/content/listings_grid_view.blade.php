@@ -15,23 +15,23 @@ isset($search_string) ? "": $search_string = "";
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-4 col-10">
-                <h4><strong><?php echo count($listings); ?></strong> <?php echo get_phrase('result_for_all'); ?></h4>
+                <h4><strong><?php echo count($listings); ?></strong> Result for all</h4>
             </div>
             <div class="col-lg-9 col-md-8 col-2">
                 <a href="#0" class="search_mob btn_search_mobile"></a> <!-- /open search panel -->
-                <form action="<?php echo site_url('home/search'); ?>" method="GET">
+                <form action="<?php echo url('home/search'); ?>" method="GET">
                     <div class="row no-gutters custom-search-input-2 inner">
                         <div class="col-lg-8">
                             <div class="form-group">
-                                <input class="form-control" name="search_string" type="text" value="<?php echo $search_string; ?>" placeholder="<?php echo get_phrase('what_are_you_looking_for'); ?>...">
+                                <input class="form-control" name="search_string" type="text" value="<?php echo $search_string; ?>" placeholder="What are you looking for...">
                                 <i class="icon_search"></i>
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <select class="wide" name="selected_category_id">
-                                <option value=""><?php echo get_phrase('all_categories'); ?></option>
+                                <option value="">All categories</option>
                                 <?php
-                                $categories = $this->crud_model->get_categories()->result_array();
+//                                $categories = $this->crud_model->get_categories()->result_array();
                                 foreach ($categories as $category):?>
                                 <option value="<?php echo $category['id']; ?>"><?php echo $category['name']; ?></option>
                                 <?php endforeach; ?>
@@ -47,14 +47,14 @@ isset($search_string) ? "": $search_string = "";
         <!-- /row -->
         <div class="search_mob_wp">
             <div class="custom-search-input-2">
-                <form action="<?php echo site_url('home/search'); ?>" method="GET">
+                <form action="<?php echo url('home/search'); ?>" method="GET">
                     <div class="form-group">
-                        <input class="form-control" name = "search_string" type="text" placeholder="<?php echo get_phrase('what_are_you_looking_for') ?>...">
+                        <input class="form-control" name = "search_string" type="text" placeholder="What are you looking for...">
                         <i class="icon_search"></i>
                     </div>
                     <select class="wide" name="selected_category_id">
-                        <option><?php echo get_phrase('all_categories'); ?></option>
-                        <?php $categories = $this->db->get('category')->result_array();
+                        <option>All categories></option>
+<!--                        --><?php //$categories = $this->db->get('category')->result_array();
                         foreach ($categories as $key => $category):?>
                         <option value="<?php echo $category['id']; ?>"><?php echo $category['name']; ?></option>
                         <?php endforeach; ?>
@@ -76,7 +76,7 @@ isset($search_string) ? "": $search_string = "";
             <li class=" float-right">
                 <div class="layout_view">
                     <?php
-                    $active_listing_view = $this->session->userdata('listings_view');
+                    $active_listing_view = session('listings_view');
 
                     if($active_listing_view == 'list_view'){
                         $color_list = 'text-success';
@@ -88,13 +88,13 @@ isset($search_string) ? "": $search_string = "";
 
                     ?>
 
-                    <a href="javascript::" id="grid_view" onclick="toggleListingView('grid_view')" class="<?php echo $color_grid; ?>"><i class="icon-th mr-1"></i><?php echo get_phrase('grid_view'); ?></a>
+                    <a href="javascript::" id="grid_view" onclick="toggleListingView('grid_viw')" class="<?php echo $color_grid; ?>"><i class="icon-th mr-1"></i>Grid view</a>
                 </div>
             </li>
             <li class=" float-right mr-1">
                 <div class="layout_view">
                     <?php
-                    $active_listing_view = $this->session->userdata('listings_view');
+                    $active_listing_view = session('listings_view');
 
                     if($active_listing_view == 'list_view'){
                         $color_list = 'text-success';
@@ -106,7 +106,8 @@ isset($search_string) ? "": $search_string = "";
 
                     ?>
 
-                    <a href="javascript::" id="list_view" onclick="toggleListingView('list_view')" class="<?php echo $color_list; ?>"><i class="icon-map mr-1"></i><?php echo get_phrase('map_view'); ?></a>
+                    <a href="javascript::" id="list_view" onclick="toggleListingView('list_view')" class="<?php echo $color_list; ?>"><i class="icon-map mr-1"></i>Map view</a>
+
                 </div>
             </li>
         </ul>
@@ -123,16 +124,16 @@ isset($search_string) ? "": $search_string = "";
     <div class="row justify-content-md-center">
         <aside class="col-xl-2 order-0" id="sidebar">
             <div id="filters_col">
-                <a data-toggle="collapse" href="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters" id="filters_col_bt"><?php echo get_phrase('filters'); ?> </a>
+                <a data-toggle="collapse" href="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters" id="filters_col_bt">Filters </a>
                 <!-- Filter form starts-->
                 <form class="filter-form" action="" method="get" enctype="multipart/form-data">
                     <div class="collapse show" id="collapseFilters">
                         <div class="filter_type">
-                            <h6><?php echo get_phrase('category'); ?></h6>
+                            <h6>Category</h6>
                             <ul class="">
                                 <?php
                                 $counter = 0;
-                                $categories = $this->db->get('category')->result_array();
+//                                $categories = $this->db->get('category')->result_array();
                                 foreach ($categories as $key => $category):
                                 if($category['parent'] > 0)
                                     continue;
@@ -144,7 +145,7 @@ isset($search_string) ? "": $search_string = "";
                                         <span class="checkmark"></span>
                                     </label>
                                 </li>
-                                <?php foreach ($this->crud_model->get_sub_categories($category['id'])->result_array() as $sub_category):
+                                <?php foreach ($category->sub_categories as $sub_category):
                                 $counter++;
                                 ?>
                                 <li class="ml-3 <?php if($counter > $number_of_visible_categories) echo 'hidden-categories hidden'; ?>">
@@ -156,22 +157,22 @@ isset($search_string) ? "": $search_string = "";
                                 <?php endforeach; ?>
                                 <?php endforeach; ?>
                             </ul>
-                            <a href="javascript::" id = "category-toggle-btn" onclick="showToggle(this, 'hidden-categories')"><?php echo count($categories) > $number_of_visible_categories ? get_phrase('show_more') : ""; ?></a>
+                            <a href="javascript::" id = "category-toggle-btn" onclick="showToggle(this, 'hidden-categories')"><?php echo count($categories) > $number_of_visible_categories ? 'Show more' : ""; ?></a>
                         </div>
 
                         <!-- Price range filter -->
                         <div class="filter_type">
-                            <h6><?php echo get_phrase('price_limit'); ?></h6>
-                            <div class="distance"> <?php echo get_phrase('price_within'); ?> <span></span> <?php echo get_settings('system_currency'); ?></div>
-                            <input type="range" class="price-range" min="0" max="<?php echo $this->frontend_model->get_the_maximum_price_limit_of_all_listings(); ?>" step="10" value="<?php echo $price_range; ?>" data-orientation="horizontal" onchange="filter(this)">
+                            <h6>Price limit</h6>
+                            <div class="distance"> Price within <span></span>{{App\Setting::all()->keyBy('type')['system_currency']->description}}</div>
+                            <input type="range" class="price-range" min="0" max="<?php// echo $this->frontend_model->get_the_maximum_price_limit_of_all_listings(); ?>" step="10" value="<?php echo $price_range; ?>" data-orientation="horizontal" onchange="filter(this)">
                         </div>
 
                         <div class="filter_type">
-                            <h6><?php echo get_phrase('amenities'); ?></h6>
+                            <h6>Amenities</h6>
                             <ul>
                                 <?php
                                 $counter = 0;
-                                $amenities = $this->crud_model->get_amenities()->result_array();
+//                                $amenities = $this->crud_model->get_amenities()->result_array();
                                 foreach ($amenities as $amenity):
                                 $counter++;
                                 ?>
@@ -196,21 +197,21 @@ isset($search_string) ? "": $search_string = "";
                                 <?php endif; ?>
                                 <?php endforeach; ?>
                             </ul>
-                            <a href="javascript::" id = "amenity-toggle-btn" onclick="showToggle(this, 'hidden-amenities')"><?php echo count($amenities) > $number_of_visible_amenities ? get_phrase('show_more') : ""; ?></a>
+                            <a href="javascript::" id = "amenity-toggle-btn" onclick="showToggle(this, 'hidden-amenities')"><?php echo count($amenities) > $number_of_visible_amenities ? 'Show more' : ""; ?></a>
                         </div>
 
                         <div class="filter_type">
-                            <h6><?php echo get_phrase('cities'); ?></h6>
+                            <h6>Cities</h6>
                             <ul>
                                 <li>
                                     <div class="">
                                         <input type="radio" id="city_all" name="city" class="city" value="all" onclick="filter(this)" <?php if($city_id == 'all') echo 'checked'; ?>>
-                                        <label for="city_all"><?php echo get_phrase('all'); ?></label>
+                                        <label for="city_all">All</label>
                                     </div>
                                 </li>
                                 <?php
                                 $counter = 1;
-                                $cities = $this->crud_model->get_cities()->result_array();
+//                                $cities = $this->crud_model->get_cities()->result_array();
                                 foreach ($cities as $city):
                                 $counter++;
                                 ?>
@@ -235,14 +236,14 @@ isset($search_string) ? "": $search_string = "";
                                 <?php endif; ?>
                                 <?php endforeach; ?>
                             </ul>
-                            <a href="javascript::" id = "city-toggle-btn" onclick="showToggle(this, 'hidden-cities')"><?php echo count($cities) > $number_of_visible_cities ? get_phrase('show_more') : ""; ?></a>
+                            <a href="javascript::" id = "city-toggle-btn" onclick="showToggle(this, 'hidden-cities')"><?php echo count($cities) > $number_of_visible_cities ? 'Show more' : ""; ?></a>
                         </div>
 
                         <div class="filter_type">
-                            <h6><?php echo get_phrase('opening_status'); ?></h6>
+                            <h6>Opening status</h6>
                             <ul>
                                 <li>
-                                    <label class="container_check"> <i class=""></i> <?php echo get_phrase('open_now'); ?>
+                                    <label class="container_check"> <i class=""></i> Open now
                                         <input type="checkbox" class="openingStatus" name="with_open" value="open" onclick="filter(this)" <?php if($with_open == 'open') echo 'checked'; ?>>
                                         <span class="checkmark"></span>
                                     </label>
@@ -251,10 +252,10 @@ isset($search_string) ? "": $search_string = "";
                         </div>
 
                         <div class="filter_type">
-                            <h6><?php echo get_phrase('video'); ?></h6>
+                            <h6>Video</h6>
                             <ul>
                                 <li>
-                                    <label class="container_check"> <i class=""></i> <?php echo get_phrase('with_video'); ?>
+                                    <label class="container_check"> <i class=""></i> With video
                                         <input type="checkbox" class="video_availability" name="with_video" value="1" onclick="filter(this)" <?php if($with_video == 1) echo 'checked'; ?>>
                                         <span class="checkmark"></span>
                                     </label>
@@ -274,17 +275,19 @@ isset($search_string) ? "": $search_string = "";
 
             <div class="row">
 
-            <?php
-            foreach($listings as $listing):
-            if(!has_package($listing['user_id']) > 0)
-                continue; ?>
+{{--            <?php--}}
+            <?php foreach($listings as $listing):
+{{--            if(!has_package($listing['user_id']) > 0)--}}
+{{--                continue; --}}
+{{--?>--}}
+                ?>
 
-            <?php
-            // $active_package = has_package($listing['user_id']);
-            // $listing_allowed_number = $this->db->get_where('package_purchased_history', array('id', $active_package))->row('number_of_listings');
-            // $listings_2 = $this->db->get_where('listing', array('user_id' => $listing['user_id']));
+{{--            <?php--}}
+{{--            // $active_package = has_package($listing['user_id']);--}}
+{{--            // $listing_allowed_number = $this->db->get_where('package_purchased_history', array('id', $active_package))->row('number_of_listings');--}}
+{{--            // $listings_2 = $this->db->get_where('listing', array('user_id' => $listing['user_id']));--}}
 
-            ?>
+{{--            ?>--}}
 
 
 
@@ -295,31 +298,31 @@ isset($search_string) ? "": $search_string = "";
                         <figure>
 
                             <a href="javascript::" class="wishlist-icon" onclick="addToWishList(this, '<?php echo $listing['id']; ?>')">
-                                <i class=" <?php echo is_wishlisted($listing['id']) ? 'fas fa-heart' : 'far fa-heart'; ?> "></i>
+{{--                                <i class=" <?php echo is_wishlisted($listing['id']) ? 'fas fa-heart' : 'far fa-heart'; ?> "></i>--}}
                             </a>
                             <?php if($listing['is_featured'] == 1){ ?>
-                            <a href="javascript::" class="featured-tag-grid"><?php echo get_phrase('featured'); ?></a>
+                            <a href="javascript::" class="featured-tag-grid">Featured</a>
                             <?php } ?>
-                            <a href="<?php echo get_listing_url($listing['id']); ?>"  id = "listing-banner-image-for-<?php echo $listing['code']; ?>"  class="d-block h-100 img" style="background-image:url('<?php echo base_url('uploads/listing_thumbnails/'.$listing['listing_thumbnail']); ?>')">
-                            <!-- <img src="<?php echo base_url('uploads/listing_thumbnails/'.$listing['listing_thumbnail']); ?>" class="img-fluid" alt=""> -->
-                                <div class="read_more"><span><?php echo get_phrase('watch_details'); ?></span></div>
+                            <a href="<?php echo route('listings.show',($listing['id'])); ?>"  id = "listing-banner-image-for-<?php echo $listing['code']; ?>"  class="d-block h-100 img" style="background-image:url('<?php echo asset('uploads/listing_thumbnails/'.$listing['listing_thumbnail']); ?>')">
+                            <!-- <img src="<?php echo asset('uploads/listing_thumbnails/'.$listing['listing_thumbnail']); ?>" class="img-fluid" alt=""> -->
+                                <div class="read_more"><span>Watch details</span></div>
                             </a>
-                            <small><?php echo $listing['listing_type'] == "" ? ucfirst(get_phrase('general')) : ucfirst(get_phrase($listing['listing_type'])) ; ?></small>
+                            <small><?php echo $listing['listing_type'] == "" ? 'General' : $listing['listing_type'] ; ?></small>
                         </figure>
                         <div class="wrapper <?php if($listing['is_featured'] == 1) echo 'featured-body'; ?>">
                             <h3 class="ellipsis">
-                                <a href="<?php echo get_listing_url($listing['id']); ?>"><?php echo $listing['name']; ?></a>
-                                <?php $claiming_status = $this->db->get_where('claimed_listing', array('listing_id' => $listing['id']))->row('status'); ?>
+                                <a href="<?php echo route('listings.show',$listing['id']); ?>"><?php echo $listing['name']; ?></a>
+                                <?php $claiming_status = $listing->claimed_listing->status; ?>
                                 <?php if($claiming_status == 1): ?>
-                                <span class="claimed_icon" data-toggle="tooltip" title="<?php echo get_phrase('this_listing_is_verified'); ?>">
-					                	<img src="<?php echo base_url('assets/frontend/images/verified.png'); ?>" width="23" />
+                                <span class="claimed_icon" data-toggle="tooltip" title="This listing is verified">
+					                	<img src="<?php echo asset('frontend/images/verified.png'); ?>" width="23" />
 					                </span>
                                 <?php endif; ?>
                             </h3>
                             <small>
                                 <?php
-                                $city 	 = $this->db->get_where('city', array('id' =>  $listing['city_id']))->row_array();
-                                $country = $this->db->get_where('country', array('id' =>  $listing['country_id']))->row_array();
+                                $city 	 = $listing->city;
+                                $country = $listing->country;
                                 echo $city['name'].', '.$country['name'];
                                 ?>
                             </small>
@@ -327,29 +330,29 @@ isset($search_string) ? "": $search_string = "";
                                 <?php echo $listing['description']; ?>
                             </p>
                             <?php if ($listing['latitude'] != "" && $listing['longitude'] != ""): ?>
-                            <a class="address" href="javascript:" button-direction-id = "<?php echo $listing['code']; ?>" target=""><?php echo get_phrase('show_on_map'); ?></a>
+                            <a class="address" href="javascript:" button-direction-id = "<?php echo $listing['code']; ?>" target="">Show on map</a>
                             <?php endif; ?>
 
                         </div>
                         <ul class="<?php if($listing['is_featured'] == 1) echo 'featured-footer'; ?> mb-0">
 
-                            <li><span class="<?php echo strtolower(now_open($listing['id'])) == 'closed' ? 'loc_closed' : 'loc_open'; ?>"><?php echo now_open($listing['id']); ?></span></li>
+                            <li><span class="<?php echo $listing->time == 'closed' ? 'loc_closed' : 'loc_open'; ?>">{{$listing->time}}</span></li>
                             <li>
                                 <div class="score">
 									<span>
 										<?php
-                                        if ($this->frontend_model->get_listing_wise_rating($listing['id']) > 0) {
-                                            $quality = $this->frontend_model->get_rating_wise_quality($listing['id']);
-                                            echo $quality['quality'];
+                                        if (count($listing->reviews) > 0) {
+                                            $quality = $listing->reviews->first()->rating_review;
+                                            echo $quality;
                                         }else {
-                                            echo get_phrase('unreviewed');
+                                            'Unreviewed';
                                         }
                                         ?>
 										<em>
-											<?php echo count($this->frontend_model->get_listing_wise_review($listing['id'])).' '.get_phrase('reviews'); ?>
+											<?php echo count($listing->reviews).' '.'Reviews'; ?>
 										</em>
 									</span>
-                                    <strong><?php echo $this->frontend_model->get_listing_wise_rating($listing['id']); ?></strong></div>
+                                    <strong><?php echo $listing->reviews->first()->rating_review; ?></strong></div>
                             </li>
                         </ul>
                     </div>
@@ -383,7 +386,7 @@ isset($search_string) ? "": $search_string = "";
         <!-- custom pagination end-->
 
             <nav class="text-center">
-                <?php echo $this->pagination->create_links(); ?>
+                <?php echo $listings->links(); ?>
             </nav>
         </div>
 
@@ -417,7 +420,7 @@ isset($search_string) ? "": $search_string = "";
         }
     });
     function filter(elem) {
-        var urlPrefix 	= '<?php echo site_url('home/filter_listings?'); ?>'
+        var urlPrefix 	= '<?php echo url('home/filter_listings?'); ?>'
         var urlSuffix = "";
         var slectedCategories = "";
         var selectedAmenities = "";
@@ -452,19 +455,19 @@ isset($search_string) ? "": $search_string = "";
     }
 
     function addToWishList(elem, listing_id) {
-        var isLoggedIn = '<?php echo $this->session->userdata('is_logged_in'); ?>';
+        var isLoggedIn = '<?php echo Auth::check(); ?>';
         if (isLoggedIn === '1') {
             $.ajax({
                 type : 'POST',
-                url : '<?php echo site_url('home/add_to_wishlist'); ?>',
+                url : '<?php echo url('home/add_to_wishlist'); ?>',
                 data : {listing_id : listing_id},
                 success : function(response) {
                     if (response == 'added') {
                         $(elem).html('<i class="fas fa-heart"></i>');
-                        toastr.success('<?php echo get_phrase('added_to_wishlist'); ?>');
+                        toastr.success('Added to wishlist');
                     }else {
                         $(elem).html('<i class="far fa-heart"></i>');
-                        toastr.success('<?php echo get_phrase('removed_from_the_wishlist'); ?>');
+                        toastr.success('Removed from the wishlist');
                     }
                 }
             });
@@ -477,25 +480,25 @@ isset($search_string) ? "": $search_string = "";
     function showToggle(elem, selector) {
         $('.'+selector).slideToggle();
         console.log($(elem).text());
-        if($(elem).text() === "<?php echo get_phrase('show_more'); ?>")
+        if($(elem).text() === "Show more")
         {
-            $(elem).text('<?php echo get_phrase('show_less'); ?>');
+            $(elem).text('Show less');
         }
         else
         {
-            $(elem).text('<?php echo get_phrase('show_more'); ?>');
+            $(elem).text('Show more');
         }
     }
 </script>
 
 <!-- This map-category.php file has all the fucntions for showing the map, marker, map info and all the popup markups -->
-<?php include 'assets/frontend/js/map/map-category.php'; ?>
+<?php //include '/frontend/js/map/map-category.php'; ?>
 
 <!-- This script is needed for providing the json file which has all the listing points and required information -->
 <script>
     function toggleListingView(type) {
         $.ajax({
-            url:'<?php echo site_url('home/listings_view/'); ?>'+type,
+            url:'<?php echo url('home/listings_view/'); ?>'+type,
             success: function(response){
                 location.reload();
             }

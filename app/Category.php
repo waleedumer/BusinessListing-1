@@ -11,4 +11,7 @@ class Category extends Model
     public function listings(){
         return $this->belongsToMany('App\Listing','category_listing')->withTimestamps();
     }
+    public function sub_categories(){
+        return $this->hasMany('App\SubCategory');
+    }
 }

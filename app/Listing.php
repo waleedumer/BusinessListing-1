@@ -37,4 +37,7 @@ class Listing extends Model
     public function reviews(){
         return $this->hasMany('App\Review','listing_id');
     }
+    public function claimed_listing(){
+        return $this->hasOne('App\ClaimedListing');
+    }
 }
