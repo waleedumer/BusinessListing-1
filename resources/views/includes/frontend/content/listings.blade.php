@@ -1,7 +1,9 @@
 <?php
 
 $listings_view = session('listings_view');
-//session(['listings_view'=>'list_view']);
+session(['listings_view'=>'grid_view']);
+$listings_view=session('listings_view');
+//dd($listings_view);
 //dd(session('listings_view'))
 if($listings_view == 'list_view'){
     session(['listings_view'=>'list_view']);

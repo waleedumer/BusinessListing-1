@@ -28,7 +28,7 @@ isset($search_string) ? "": $search_string = "";
                     <!-- /row -->
                     <div class="search_mob_wp">
                         <div class="custom-search-input-2 map_view">
-                            <form action="<?php echo route('home/search'); ?>" method="GET">
+                            <form action="<?php echo url('home/search'); ?>" method="GET">
                                 <div class="form-group">
                                     <input class="form-control" name="search_string" type="text" value="<?php echo $search_string; ?>" placeholder="What are you looking for...">
                                     <i class="icon_search"></i>
@@ -122,7 +122,7 @@ isset($search_string) ? "": $search_string = "";
                                         </label>
                                     </li>
 
-                                    <?php foreach $category->sub_categories as $sub_category):
+                                    <?php foreach ($category->sub_categories as $sub_category):
                                     $counter++;
                                     ?>
                                     <li class="ml-3 <?php if($counter > $number_of_visible_categories) echo 'hidden-categories hidden'; ?>">
@@ -274,18 +274,18 @@ isset($search_string) ? "": $search_string = "";
 {{--                                <i class=" <?php echo is_wishlisted($listing['id']) ? 'fas fa-heart' : 'far fa-heart'; ?> "></i>--}}
                             </a>
                             <h3 class="ellipsis">
-                                <a href="<?php echo route('listings.show'($listing['id'])); ?>"><?php echo $listing['name']; ?></a>
+                                <a href="<?php echo route('listings.show',($listing['id'])); ?>"><?php echo $listing['name']; ?></a>
                                 <?php $claiming_status = $listing->claimed_listing->status; ?>
                                 <?php if($claiming_status == 1): ?>
                                 <span class="claimed_icon" data-toggle="tooltip" data-placement="right" title="This listing is verified">
-						                	<img src="<?php echo asset('assets/frontend/images/verified.png'); ?>" width="23" />
+						                	<img src="<?php echo asset('frontend/images/verified.png'); ?>" width="23" />
 						                </span>
                                 <?php endif; ?>
                             </h3>
                             <small>
                                 <?php
-                                $city 	 = $this->db->get_where('city', array('id' =>  $listing['city_id']))->row_array();
-                                $country = $this->db->get_where('country', array('id' =>  $listing['country_id']))->row_array();
+                                $city 	 = $listing->city;
+                                $country = $listing->country;
                                 echo $city['name'].', '.$country['name'];
                                 ?>
                             </small>
@@ -293,27 +293,27 @@ isset($search_string) ? "": $search_string = "";
                                 <?php echo $listing['description']; ?>
                             </p>
                             <?php if ($listing['latitude'] != "" && $listing['longitude'] != ""): ?>
-                            <a class="address" href="javascript:" button-direction-id = "<?php echo $listing['code']; ?>" target=""><?php echo get_phrase('show_on_map'); ?></a>
+                            <a class="address" href="javascript:" button-direction-id = "<?php echo $listing['code']; ?>" target="">Show on map></a>
                             <?php endif; ?>
                         </div>
                         <ul class="<?php if($listing['is_featured'] == 1) echo 'featured-footer'; ?>">
-                            <li><span class="<?php echo strtolower(now_open($listing['id'])) == 'closed' ? 'loc_closed' : 'loc_open'; ?>"><?php echo now_open($listing['id']); ?></span></li>
+                            <li><span class="<?php echo strtolower($listing->time) == 'closed' ? 'loc_closed' : 'loc_open'; ?>"><?php echo $listing->time; ?></span></li>
                             <li>
                                 <div class="score">
 										<span>
 											<?php
-                                            if ($this->frontend_model->get_listing_wise_rating($listing['id']) > 0) {
-                                                $quality = $this->frontend_model->get_rating_wise_quality($listing['id']);
-                                                echo $quality['quality'];
+                                            if (count($listing->reviews) > 0) {
+                                                $quality = $listing->reviews->first()->review_rating;
+                                                echo $quality;
                                             }else {
-                                                echo get_phrase('unreviewed');
+                                                'Unreviewed';
                                             }
                                             ?>
 											<em>
-												<?php echo count($this->frontend_model->get_listing_wise_review($listing['id'])).' '.get_phrase('reviews'); ?>
+												<?php echo count($listing->reviews).' '.'Reviews'; ?>
 											</em>
 										</span>
-                                    <strong><?php echo $this->frontend_model->get_listing_wise_rating($listing['id']); ?></strong></div>
+                                    <strong><?php echo $listing->reviews->first()->review_rating; ?></strong></div>
                             </li>
                         </ul>
                     </div>
@@ -345,6 +345,7 @@ isset($search_string) ? "": $search_string = "";
                     <li class=""><a class="page-link" href="<?php echo site_url('home/search/'.$total_page_number.'?search_string='.$search_string.'&selected_category_id='.$selected_category_id); ?>"><?php echo strtolower(get_phrase('last')); ?></a></li>
                 </ul>
             </nav>
+
             <?php elseif(isset($pagination) && isset($total_page_number) && $pagination == 'filter_page'): ?>
             <nav class="text-center" aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
@@ -356,10 +357,11 @@ isset($search_string) ? "": $search_string = "";
                 </ul>
             </nav>
         <?php endif; ?>
+
         <!-- custom pagination end-->
 
             <nav class="text-center">
-                <?php echo $this->pagination->create_links(); ?>
+                {{$listings->links()}}
             </nav>
         </div>
         <!-- /content-left-->
@@ -396,7 +398,7 @@ isset($search_string) ? "": $search_string = "";
         }
     });
     function filter(elem) {
-        var urlPrefix 	= '<?php echo site_url('home/filter_listings?'); ?>'
+        var urlPrefix 	= '<?php echo url('home/filter_listings?'); ?>'
         var urlSuffix = "";
         var slectedCategories = "";
         var selectedAmenities = "";
@@ -434,19 +436,19 @@ isset($search_string) ? "": $search_string = "";
     }
 
     function addToWishList(elem, listing_id) {
-        var isLoggedIn = '<?php echo $this->session->userdata('is_logged_in'); ?>';
+        var isLoggedIn = '<?php echo Auth::check(); ?>';
         if (isLoggedIn === '1') {
             $.ajax({
                 type : 'POST',
-                url : '<?php echo site_url('home/add_to_wishlist'); ?>',
+                url : '<?php echo url('home/add_to_wishlist'); ?>',
                 data : {listing_id : listing_id},
                 success : function(response) {
                     if (response == 'added') {
                         $(elem).html('<i class="fas fa-heart"></i>');
-                        toastr.success('<?php echo get_phrase('added_to_wishlist'); ?>');
+                        toastr.success('Added to Wishlist');
                     }else {
                         $(elem).html('<i class="far fa-heart"></i>');
-                        toastr.success('<?php echo get_phrase('removed_from_the_wishlist'); ?>');
+                        toastr.success('Removed from the Wishlist');
                     }
                 }
             });
@@ -459,13 +461,13 @@ isset($search_string) ? "": $search_string = "";
     function showToggle(elem, selector) {
         $('.'+selector).slideToggle();
         console.log($(elem).text());
-        if($(elem).text() === "<?php echo get_phrase('show_more'); ?>")
+        if($(elem).text() === "Show more'")
         {
-            $(elem).text('<?php echo get_phrase('show_less'); ?>');
+            $(elem).text('Show less');
         }
         else
         {
-            $(elem).text('<?php echo get_phrase('show_more'); ?>');
+            $(elem).text('Show more');
         }
     }
 </script>
