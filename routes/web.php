@@ -68,7 +68,8 @@ Route::get('/home/filter_listings_by_categories','ListingsController@filter_list
 Route::get('/home/filter_listings','ListingsController@filter_listings');
 Route::get('/home/category','FrontendCategoryController@index');
 Route::get('/home/pricing','FrontendPricingController@index');
-Route::get('home/blog','FrontendBlogsController@index');
+Route::get('/home/blog','FrontendBlogsController@index');
+Route::get('/home/listings','FrontendListingsController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
