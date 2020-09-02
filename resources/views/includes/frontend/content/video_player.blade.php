@@ -1,4 +1,4 @@
-<?php if(has_package_feature('ability_to_add_video', $listing_details['user_id']) == 1 && $listing_details['video_url'] != ""): ?>
+<?php if( $listing_details->package['ability_to_add_video'] == 1 && $listing_details['video_url'] != ""): ?>
 <hr>
 <h3>Video</h3>
 <div class="" style="text-align: center;">
@@ -26,7 +26,7 @@
 
     <?php else :?>
 
-    <link rel="stylesheet" href="<?php echo base_url('global/plyr/plyr.css');?>">
+    <link rel="stylesheet" href="<?php echo asset('global/plyr/plyr.css');?>">
     <video poster="<?php echo asset('uploads/listing_cover_photo/'.$listing_details['listing_cover']);?>" id="player" playsinline controls>
         <?php if (get_video_extension($listing_details['video_url']) == 'mp4'): ?>
         <source src="<?php echo $listing_details['video_url']; ?>" type="video/mp4">

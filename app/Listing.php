@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use Embed;
 use Illuminate\Database\Eloquent\Model;
 
 class Listing extends Model
@@ -50,7 +50,7 @@ class Listing extends Model
         return $this->hasMany('App\ProductDetail');
     }
     public function food_menus(){
-        return $this->hasMany('App\FoodMany');
+        return $this->hasMany('App\FoodMenu');
     }
     public function photos(){
         return $this->hasMany('App\Photo','listing_id');
@@ -63,5 +63,15 @@ class Listing extends Model
     }
     public function users(){
         return $this->belongsToMany('App\User')->withPivot('is_wishlisted');
+    }
+    public function getVideoHtmlAttribute()
+    {
+        $embed = Embed::make($this->video_url)->parseUrl();
+
+        if (!$embed)
+            return '';
+
+        $embed->setAttribute(['width' => 800]);
+        return $embed->getHtml();
     }
 }

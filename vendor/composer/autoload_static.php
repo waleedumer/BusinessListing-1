@@ -505,6 +505,13 @@ class ComposerStaticInit36dc72316e8afd7f293d7007736dc57f
                 0 => __DIR__ . '/..' . '/scrivo/highlight.php',
             ),
         ),
+        'C' => 
+        array (
+            'Cohensive\\Embed' => 
+            array (
+                0 => __DIR__ . '/..' . '/cohensive/embed/src',
+            ),
+        ),
     );
 
     public static $classMap = array (
@@ -586,7 +593,6 @@ class ComposerStaticInit36dc72316e8afd7f293d7007736dc57f
         'App\\TimeConfiguration' => __DIR__ . '/../..' . '/app/TimeConfiguration.php',
         'App\\UnderComment' => __DIR__ . '/../..' . '/app/UnderComment.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
-        'App\\Wishlist' => __DIR__ . '/../..' . '/app/Wishlist.php',
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
         'Asm89\\Stack\\Cors' => __DIR__ . '/..' . '/asm89/stack-cors/src/Cors.php',
         'Asm89\\Stack\\CorsService' => __DIR__ . '/..' . '/asm89/stack-cors/src/CorsService.php',
@@ -679,6 +685,12 @@ class ComposerStaticInit36dc72316e8afd7f293d7007736dc57f
         'Carbon\\Traits\\Units' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Traits/Units.php',
         'Carbon\\Traits\\Week' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Traits/Week.php',
         'Carbon\\Translator' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Translator.php',
+        'Cohensive\\Embed\\DataFetcher' => __DIR__ . '/..' . '/cohensive/embed/src/Cohensive/Embed/DataFetcher.php',
+        'Cohensive\\Embed\\Embed' => __DIR__ . '/..' . '/cohensive/embed/src/Cohensive/Embed/Embed.php',
+        'Cohensive\\Embed\\EmbedServiceProvider' => __DIR__ . '/..' . '/cohensive/embed/src/Cohensive/Embed/EmbedServiceProvider.php',
+        'Cohensive\\Embed\\Exceptions\\MissingConfigurationException' => __DIR__ . '/..' . '/cohensive/embed/src/Cohensive/Embed/Exceptions/MissingConfigurationException.php',
+        'Cohensive\\Embed\\Facades\\Embed' => __DIR__ . '/..' . '/cohensive/embed/src/Cohensive/Embed/Facades/Embed.php',
+        'Cohensive\\Embed\\Factory' => __DIR__ . '/..' . '/cohensive/embed/src/Cohensive/Embed/Factory.php',
         'Collective\\Html\\Componentable' => __DIR__ . '/..' . '/laravelcollective/html/src/Componentable.php',
         'Collective\\Html\\Eloquent\\FormAccessible' => __DIR__ . '/..' . '/laravelcollective/html/src/Eloquent/FormAccessible.php',
         'Collective\\Html\\FormBuilder' => __DIR__ . '/..' . '/laravelcollective/html/src/FormBuilder.php',

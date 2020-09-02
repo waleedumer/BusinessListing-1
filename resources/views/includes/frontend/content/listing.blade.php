@@ -184,6 +184,9 @@
             </ul>
         </aside>
         <?php endif; ?>
+        {!! $listing_details->video_html !!}
+
+{{--        <script src="{url}"></script>--}}
 
     </div>
     <!-- /row -->
@@ -251,4 +254,5 @@
         jsonFile: '<?php echo asset('frontend/single-listing-geojson/listing-id-'.$listing_details['id'].'.json'); ?>'
     });
 </script>
+
 

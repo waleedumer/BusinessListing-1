@@ -5,16 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="09a18d2c-a329-466b-9831-3e3e6eb01fe8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/laralearn.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laralearn.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Amenity.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Amenity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ListingsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ListingsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Country.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Country.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Listing.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Listing.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/frontend/js/map/map-category.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend/js/map/map-category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/frontend/map/map-category.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/frontend/map/map-category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/includes/frontend/content/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/frontend/content/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/frontend_header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/frontend_header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/frontend/content/listing.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/frontend/content/listing.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/frontend/content/video_player.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/frontend/content/video_player.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,6 +142,7 @@
       <path value="$PROJECT_DIR$/vendor/laravelcollective/html" />
       <path value="$PROJECT_DIR$/vendor/laravel/ui" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
+      <path value="$PROJECT_DIR$/vendor/cohensive/embed" />
     </include_path>
   </component>
   <component name="ProjectId" id="1gbeLKK1sQRCJi9AtNMrvEHgSmX" />
@@ -155,19 +161,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xamp\htdocs\laralearn\resources\views\includes\admin-dashboard" />
+      <recent name="C:\xamp\htdocs\laralearn\resources\views\includes\admin-dashboard\content" />
+      <recent name="C:\xamp\htdocs\laralearn\resources\js\frontend" />
+      <recent name="C:\xamp\htdocs\laralearn\resources\css\frontend" />
+      <recent name="C:\xamp\htdocs\laralearn\resources\backend-login" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xamp\htdocs\laralearn\resources\js\frontend" />
       <recent name="C:\xamp\htdocs\laralearn\resources\css\frontend" />
       <recent name="C:\xamp\htdocs\laralearn\resources\views\includes\admin-dashboard" />
       <recent name="C:\xamp\htdocs\laralearn\resources" />
       <recent name="C:\xamp\htdocs\laralearn\resources\fonts\backend" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xamp\htdocs\laralearn\resources\views\includes\admin-dashboard\content" />
-      <recent name="C:\xamp\htdocs\laralearn\resources\js\frontend" />
-      <recent name="C:\xamp\htdocs\laralearn\resources\css\frontend" />
-      <recent name="C:\xamp\htdocs\laralearn\resources\views\includes\admin-dashboard" />
-      <recent name="C:\xamp\htdocs\laralearn\resources\backend-login" />
     </key>
   </component>
   <component name="RunManager">
@@ -193,7 +199,7 @@
       <workItem from="1598802100595" duration="16884000" />
       <workItem from="1598852164951" duration="45994000" />
       <workItem from="1598945430765" duration="33312000" />
-      <workItem from="1599027775771" duration="21295000" />
+      <workItem from="1599027775771" duration="48789000" />
     </task>
     <servers />
   </component>
@@ -201,10 +207,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="422" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1598975534207">
+    <state x="422" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1599078440582">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="422" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1598975534207" />
+    <state x="422" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1599078440582" />
     <state x="420" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1598956435067">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -229,13 +235,13 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1598641654874" />
-    <state x="339" y="162" width="672" height="677" key="run.anything.popup" timestamp="1598877217618">
+    <state x="339" y="162" width="672" height="677" key="run.anything.popup" timestamp="1599083663904">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="339" y="162" width="672" height="677" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1598877217618" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1599046568149">
+    <state x="339" y="162" width="672" height="677" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1599083663904" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1599079950055">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1599046568149" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1599079950055" />
   </component>
 </project>
