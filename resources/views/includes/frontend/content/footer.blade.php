@@ -1,4 +1,3 @@
-<?php //$social_link_for_footer = json_decode(get_frontend_settings('social_links'), true);?>
 <footer class="plus_border">
     <div class="container margin_60_35">
         <div class="row">

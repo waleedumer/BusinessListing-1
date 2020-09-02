@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09a18d2c-a329-466b-9831-3e3e6eb01fe8" name="Default Changelist" comment="" />
+    <list default="true" id="09a18d2c-a329-466b-9831-3e3e6eb01fe8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Amenity.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Amenity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ListingsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ListingsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Listing.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Listing.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/frontend/js/map/map-category.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend/js/map/map-category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/frontend/map/map-category.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/frontend/map/map-category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/frontend/content/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/frontend/content/footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/frontend_header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/frontend_header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +24,9 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
@@ -126,6 +140,9 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1gbeLKK1sQRCJi9AtNMrvEHgSmX" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -135,6 +152,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../codecanyon-23830254-atlas-business-directory-listing/atlas" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -174,7 +192,8 @@
       <workItem from="1598766406613" duration="28977000" />
       <workItem from="1598802100595" duration="16884000" />
       <workItem from="1598852164951" duration="45994000" />
-      <workItem from="1598945430765" duration="22014000" />
+      <workItem from="1598945430765" duration="33312000" />
+      <workItem from="1599027775771" duration="21295000" />
     </task>
     <servers />
   </component>
@@ -182,10 +201,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="422" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1598813414527">
+    <state x="422" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1598975534207">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="422" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1598813414527" />
+    <state x="422" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1598975534207" />
     <state x="420" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1598956435067">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -194,14 +213,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1598788535026" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1598948476478">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1599029408622">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1598948476478" />
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1599029408622" />
     <state x="495" y="87" key="NewPhpClassDialog" timestamp="1598441823900">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="495" y="87" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1598441823900" />
+    <state x="184" y="9" key="SettingsEditor" timestamp="1598975635291">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1598975635291" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1598641654874">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -210,9 +233,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" width="672" height="677" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1598877217618" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1598965059597">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1599046568149">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1598965059597" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1599046568149" />
   </component>
 </project>

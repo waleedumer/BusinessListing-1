@@ -40,4 +40,28 @@ class Listing extends Model
     public function claimed_listing(){
         return $this->hasOne('App\ClaimedListing');
     }
+    public function amenities(){
+        return $this->hasMany('App\Amenity','listing_id');
+    }
+    public function hotel_room_specifications(){
+        return $this->hasMany('App\HotelRoomSpecification');
+    }
+    public function product_details(){
+        return $this->hasMany('App\ProductDetail');
+    }
+    public function food_menus(){
+        return $this->hasMany('App\FoodMany');
+    }
+    public function photos(){
+        return $this->hasMany('App\Photo','listing_id');
+    }
+    public function beauty_services(){
+        return $this->hasMany('App\BeautyService');
+    }
+    public function package(){
+        return $this->belongsTo('App\Package');
+    }
+    public function users(){
+        return $this->belongsToMany('App\User')->withPivot('is_wishlisted');
+    }
 }

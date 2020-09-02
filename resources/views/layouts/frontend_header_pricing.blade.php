@@ -4,15 +4,14 @@
             <div class="col-lg-3 col-12">
                 <div id="logo">
                     <a href="<?php echo url('home'); ?>">
-                        <img src="<?php echo asset('global/dark_logo.png');?>" width="165" height="35" alt="" class="logo_sticky">
+                        <img src="<?php echo asset('frontend/img/dark_logo.png');?>" width="165" height="35" alt="" class="logo_sticky">
                     </a>
                 </div>
             </div>
             <div class="col-lg-9 col-12">
                 <ul id="top_menu">
-                    <?php if (Auth::check()): ?>
-                    <li><a href="<?php echo url('login'); ?>" class="login" title="Sign In">Sign In</a></li>
-                    <?php endif; ?>
+                    <li><a href="<?php echo url('home/add_listing');?>" class="btn_add">Add Listing</a></li>
+                    <li><a href="#sign-in-dialog" id="sign-in" class="login" title="Sign In">Sign In</a></li>
                 </ul>
                 <!-- /top_menu -->
                 <a href="#menu" class="btn_mobile">
@@ -33,7 +32,7 @@
 
 <div class="sub_header_in sticky_header">
     <div class="container">
-        <h1><?php echo $page_data['page_title']??''; ?></h1>
+        <h1>Pricing</h1>
     </div>
     <!-- /container -->
 </div>
