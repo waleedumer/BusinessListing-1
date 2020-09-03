@@ -70,6 +70,15 @@ Route::get('/home/category','FrontendCategoryController@index');
 Route::get('/home/pricing','FrontendPricingController@index');
 Route::get('/home/blog','FrontendBlogsController@index');
 Route::get('/home/listings','FrontendListingsController@index');
+Route::group(['middleware'=>'user'], function(){
+    Route::resource('/user','UserController')->except('show','delete','create','update','store');
+    Route::resource('/user/listings','UserListingsController',[
+        'as'=>'user'
+    ]);
+    Route::get('user/wishlists','UserWishlistsController@index')->name('user.wishlists');
+    Route::get('user/manage_profile','UserManageProfilesController@index')->name('user.manage_profile');
+});
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index');

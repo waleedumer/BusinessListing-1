@@ -41,7 +41,7 @@
     </div>
 </div>
 
-<?php include 'special_offer_form.php'; ?>
-<?php include 'restaurant_food_menu_form.php'; ?>
-<?php include 'beauty_service_form.php'; ?>
-<?php include 'hotel_room_specification_form.php'; ?>
+@include('includes.admin-dashboard.user-dashboard.special_offer_form')
+@include('includes.admin-dashboard.user-dashboard.restaurant_food_menu_form')
+@include('includes.admin-dashboard.user-dashboard.beauty_service_form')
+@include('includes.admin-dashboard.user-dashboard.hotel_room_specification_form')

@@ -9,13 +9,16 @@
                     <div class="title">
                         <h3>
                             <?php
-                            $total_spent_amount = auth()->user()->package_purchased_history;
-                            if(count($total_spent_amount)>1){
-                                $total_spent_amount=array_sum($total_spent_amount->package['price'])
+                            $total_spent_amount = auth()->user()->packages;
+                            if(count($total_spent_amount)>=1){
+                                foreach($total_spent_amount as $amount)
+                                    $arr=[''];
+                                $total_spent_amount=array_sum($total_spent_amount->all('price'));
                             }else{
-                                $total_spent_amount=$total_spent_amount->package['price'];
+//                                dd($total_spent_amount);
+                                $total_spent_amount=0;
                             }
-                            echo App\Setting::all()->keyBy('type')['system_currency']->description.' '. $total_spent_amount);?>
+                            echo App\Setting::all()->keyBy('type')['system_currency']->description.' '. $total_spent_amount;?>
                         </h3>
                         <p>
                             Total amount spent
@@ -31,8 +34,8 @@
                     <div class="title">
                         <h3>
                             <?php
-                            $wishlisted_items = auth()->user()->pivot->is_wishlisted;
-                            echo count($wishlisted_items);
+                            $wishlisted_items = auth()->user()->wishlist->contains('pivot');
+                            $wishlisted_items;
                             ?>
                         </h3>
                         <p>
@@ -82,9 +85,10 @@
     <div class="col-lg-6">
         <div class="row">
             <?php
-            $currently_active_package = auth()->user()->has(package);
-            if ($currently_active_package['package_id'] > 0):
-            $package_details = $this->db->get_where('package', array('id' => $currently_active_package['package_id']))->row_array();?>
+            $has_packages=(auth()->user()->packages()->count());
+            $currently_active_package = auth()->user()->packages->last();
+            if ($has_packages>0):
+            $package_details = $currently_active_package;?>
             <div class="col-sm-12">
                 <div class="tile-progress tile-blue">
                     <div class="tile-header">

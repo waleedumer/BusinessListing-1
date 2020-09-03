@@ -12,10 +12,8 @@
                 <h3>
                     <?php
                     $user_id = auth()->user()->id;
-                    $this->db->where('user_id', $user_id);
-                    $this->db->order_by('id', 'desc')->limit(1);
-                    $package_id = $this->db->get_where('package_purchased_history')->row('package_id');
-                    $total_listing = $this->db->get_where('package', array('id' => $package_id))->row('number_of_listings');
+                    $package_id = auth()->user()->packages->last();
+                    $total_listing = auth()->user()->packages->last()['number_of_listings'];
                     echo $total_listing;
                     ?>
                 </h3>
@@ -209,7 +207,7 @@
                 </div>
             </div>
             <div class="panel-body text-center">
-                <img src="<?php echo asset('assets/frontend/images/file-searching.svg'); ?>" height="90" alt="File not found Image">
+                <img src="<?php echo asset('frontend/images/file-searching.svg'); ?>" height="90" alt="File not found Image">
 
                 <h4 class="text-uppercase text-danger mt-3"><?php echo 'Listing'.' '.$total_listing.' / '.$submited_listing; ?></h4>
                 <p class="text-muted mt-3">There is no free space add to the listing, for that you have to buy a upper level package.</p>
@@ -222,9 +220,9 @@
 <?php } ?>
 <script type="text/javascript">
     // User Specific Data
-    var highestNumberOfCategories = parseInt('<?php echo auth()->user()->package['number_of_categories']; ?>');
-    var highestNumberOfPhotos     = parseInt('<?php echo auth()->user()->package['number_of_photos']; ?>');
-    var highestNumberOfTags       = parseInt('<?php echo auth()->user()->package['number_of_tags']; ?>');
+    var highestNumberOfCategories = parseInt('<?php echo auth()->user()->packages()->count()>0? auth()->user()->packages->last()['number_of_categories']:0; ?>');
+    var highestNumberOfPhotos     = parseInt('<?php echo auth()->user()->packages()->count()>0?auth()->user()->packages->last()['number_of_photos']:0; ?>');
+    var highestNumberOfTags       = parseInt('<?php echo auth()->user()->packages()->count()>0?auth()->user()->packages->last()['number_of_tags']:0; ?>');
 
     var blank_category = $('#blank_category_field').html();
     var blank_photo_uploader = $('#blank_photo_uploader').html();
@@ -336,7 +334,7 @@
 
     function appendCategory() {
         if (countElements('appendedCategoryFields') >= highestNumberOfCategories) {
-            error_notify('<?php echo get_phrase('upgrade_your_package_for_adding_more_category'); ?>')
+            error_notify('Upgrade your package for adding more category')
         }else {
             jQuery('#category_area').append(blank_category);
         }
@@ -348,7 +346,7 @@
 
     function appendPhotoUploader() {
         if (countElements('appendedPhotoUploader') >= highestNumberOfPhotos) {
-            error_notify('<?php echo get_phrase('upgrade_your_package_for_adding_more_photos'); ?>')
+            error_notify('Upgrade your package for adding more photos')
         }else {
             jQuery('#photos_area').append(blank_photo_uploader);
         }

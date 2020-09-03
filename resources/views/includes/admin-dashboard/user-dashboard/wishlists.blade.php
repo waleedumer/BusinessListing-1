@@ -22,23 +22,24 @@
                     <tbody>
                     <?php
                     $counter = 0;
-                    $listings = $this->crud_model->get_user_wise_wishlist();
+                    if(auth()->user()->wishlist()->count()>0);
+                    $listings = auth()->user()->wishlist;
                     foreach ($listings as $listing): ?>
                     <tr>
                         <td><?php echo ++$counter; ?></td>
                         <td class="text-center"><img class = "rounded-circle img-thumbnail" src="<?php echo asset('uploads/listing_cover_photo/'.$listing['listing_cover']); ?>" alt="" style="height: 50px; width: 50px;"></td>
-                        <td><a href="<?php echo get_listing_url($listing['id']) ?>"><?php echo $listing['name']; ?></a></td>
+                        <td><a href="<?php echo route('listings.show',$listing['id']) ?>"><?php echo $listing['name']; ?></a></td>
                         <td>
                             <?php
-                            $categories = json_decode($listing['categories']);
+                            $categories = $listing->categories;
                             foreach ($categories as $category):
-                            $category_details = $this->crud_model->get_categories($category)->row_array();?>
-                            <span class="badge badge-secondary"><?php echo $category_details['name']; ?></span><br>
+//                            $category_details = $this->crud_model->get_categories($category)->row_array();?>
+                            <span class="badge badge-secondary"><?php echo $category['name']; ?></span><br>
                             <?php endforeach; ?>
                         </td>
                         <td>
                             <?php
-                            $user_details = $this->user_model->get_all_users($listing['user_id'])->row_array();
+                            $user_details =$listing->user;
                             echo $user_details['name'];
                             ?>
                         </td>
@@ -46,9 +47,9 @@
                         <td><?php echo date('D, d-M-Y', $listing['date_added']); ?></td>
                     </tr>
                     <?php endforeach; ?>
+                    <?endif;?>
                     </tbody>
                 </table>
-
             </div>
         </div>
     </div><!-- end col-->

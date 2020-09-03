@@ -1,6 +1,7 @@
 <div class="row ">
     <div class="col-lg-12">
-        <?php if (count(auth()->user()->package) > 0): ?> <a href="<?php echo url('user/listing_form/add'); ?>" class="btn btn-primary alignToTitle"><i class="entypo-plus"></i>Add new directory</a> <?php endif; ?>
+
+        <?php if (auth()->user()->packages()->count() > 0): ?> <a href="<?php echo url('user/listing_form/add'); ?>" class="btn btn-primary alignToTitle"><i class="entypo-plus"></i>Add new directory</a> <?php endif; ?>
     </div><!-- end col-->
 </div>
 <div class="row">
@@ -26,6 +27,8 @@
                     <tbody id = "listing_table">
                     <?php
                     $counter = 0;
+                    $total_listings=auth()->user()->listings()->count();
+                    if($total_listings>0):
                     foreach ($listings as $listing):
                     $user_details = $listing->user;$this->user_model->get_all_users($listing['user_id'])->row_array();?>
                     <tr>
@@ -107,6 +110,7 @@
                         </td>
                     </tr>
                     <?php endforeach; ?>
+                    @endif
                     </tbody>
                 </table>
                 <button class="btn btn-danger" id="delete_listings" style="display: none;">Delete selected</button>

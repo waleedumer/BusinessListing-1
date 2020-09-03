@@ -15,11 +15,11 @@
     <label for="featured_type" class="col-sm-3 control-label">Featured type</label>
     <div class="col-sm-7">
         <?php $user_id = auth()->user()->id; ?>
-        <?php $package_id = App\PackagePurchasedHistory::where('user_id',$user_id)->first()->package_id; ?>
+        <?php $package_id = auth()->user()->packages->last()['id']; ?>
         <?php $featured_status = App\Package::where('id',$package_id)->first()['featured']; ?>
         <select name="is_featured" id = "featured_type" class="selectboxit" <?php if($featured_status != 1) echo 'disabled'; ?> required>
-            <option value=""><?php echo get_phrase('select_featured_type'); ?></option>
-            <option value="1"><?php echo get_phrase('featured'); ?></option>
+            <option value="">Select featured type</option>
+            <option value="1">Featured</option>
             <option value="0"<?php if($featured_status != 1) echo 'selected'; ?>>None featured</option>
         </select>
     </div>

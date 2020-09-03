@@ -1,8 +1,3 @@
-<?php
-$countries  = $this->db->get('country')->result_array();
-$categories = $this->db->get('category')->result_array();
-
-?>
 <div class="row ">
     <div class="col-xl-12">
         <div class="card">
@@ -12,6 +7,11 @@ $categories = $this->db->get('category')->result_array();
         </div>
     </div>
 </div>
+
+<?php$total_packages=auth()->user()->packages()->count();
+$selected_package=auth()->user()->packages->last()?>
+<?php if($total_packages>0)?>
+
 <form action="<?php echo url('user/listings/add'); ?>" method="post" role="form" class="form-horizontal form-groups-bordered" enctype="multipart/form-data">
     <div class="row justify-content-md-center">
         <!-- First Portion Starts -->
@@ -92,7 +92,9 @@ $categories = $this->db->get('category')->result_array();
                             </div>
                         </div>
                     </div>
-                    <?php if (auth()->user()->package['ability_to_add_video'] == 1): ?>
+{{--                    @if(auth()->user()->packages()->count()>0)--}}
+
+                    <?php if ($selected_package['ability_to_add_video'] == 1): ?>
                     <div class="col-lg-12">
                         <h4 class="header-title mt-3">Video</h4>
                         <hr>
@@ -305,7 +307,8 @@ $categories = $this->db->get('category')->result_array();
                             </div>
                         </div>
                     </div>
-                    <?php if (user()->auth()->package['ability_to_add_contact_form'] == 1): ?>
+
+                    <?php if ($selected_package['ability_to_add_contact_form']== 1): ?>
                     <div class="col-lg-12">
                         <h4 class="header-title mt-3">Contact form type</h4>
                         <hr>
@@ -342,11 +345,12 @@ $categories = $this->db->get('category')->result_array();
         </div>
     </div>
 </form>
+<?php endif;?>
 
 <script type="text/javascript">
-    var highestNumberOfCategories = parseInt('<?php echo auth()->user()->package['number_of_categories']; ?>');
-    var highestNumberOfPhotos     = parseInt('<?php echo auth()->user()->package['number_of_photos']; ?>');
-    var highestNumberOfTags       = parseInt('<?php echo auth()->user()->package['number_of_tags']; ?>');
+    var highestNumberOfCategories = parseInt('<?php echo auth()->user()->packages()->count()>0? $selected_package['number_of_categories']:  0; ?>');
+    var highestNumberOfPhotos     = parseInt('<?php echo auth()->user()->packages()->count()>0? $selected_package['number_of_photos']:  0; ?>');
+    var highestNumberOfTags       = parseInt('<?php echo auth()->user()->packages()->count()>0? $selected_package['number_of_tags']:  0; ?>');
     var blank_category = $('#blank_category_field').html();
     var blank_photo_uploader = $('#blank_photo_uploader').html();
 
