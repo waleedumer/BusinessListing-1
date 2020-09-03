@@ -10,6 +10,7 @@ isset($price_range) ? "" 			: $price_range = 0;
 isset($with_video) ? "" 	: $with_video = "";
 isset($with_open) ? "" 	: $with_open = "";
 isset($search_string) ? "": $search_string = "";
+$settings=App\Setting::all()->keyBy('type');
 ?>
 <div id="results">
     <div class="container">
@@ -336,7 +337,7 @@ isset($search_string) ? "": $search_string = "";
                         </div>
                         <ul class="<?php if($listing['is_featured'] == 1) echo 'featured-footer'; ?> mb-0">
 
-                            <li><span class="<?php echo $listing->time == 'closed' ? 'loc_closed' : 'loc_open'; ?>">{{$listing->time}}</span></li>
+                            <li><span class="<?php echo \Carbon\Carbon::now() == 'closed' ? 'loc_closed' : 'loc_open'; ?>">{{\Carbon\Carbon::now($settings['timezone']->description)->hour}}</span></li>
                             <li>
                                 <div class="score">
 									<span>
@@ -349,7 +350,7 @@ isset($search_string) ? "": $search_string = "";
                                         }
                                         ?>
 										<em>
-											<?php echo count($listing->reviews).' '.'Reviews'; ?>
+											<?php echo $listing->reviews()->count().' '.'Reviews'; ?>
 										</em>
 									</span>
                                     <strong><?php echo $listing->reviews->first()->rating_review; ?></strong></div>
@@ -362,27 +363,27 @@ isset($search_string) ? "": $search_string = "";
             </div>
 
             <!-- custom pagination -->
-            <?php if(isset($pagination) && isset($total_page_number) && $pagination == 'search_page'): ?>
-            <nav class="text-center" aria-label="Page navigation example">
-                <ul class="pagination justify-content-center">
-                    <li class=""><a class="page-link" href="<?php echo site_url('home/search/1?search_string='.$search_string.'&selected_category_id='.$selected_category_id); ?>"><?php echo strtolower(get_phrase('first')); ?></a></li>
-                    <?php for($page_number = 1; $page_number <= $total_page_number; $page_number++){ ?>
-                    <li class=""><a class="page-link <?php if($active_page_number == $page_number) { echo 'active'; } ?>" href="<?php echo site_url('home/search/'.$page_number.'?search_string='.$search_string.'&selected_category_id='.$selected_category_id); ?>"><?php echo $page_number; ?></a></li>
-                    <?php } ?>
-                    <li class=""><a class="page-link" href="<?php echo site_url('home/search/'.$total_page_number.'?search_string='.$search_string.'&selected_category_id='.$selected_category_id); ?>"><?php echo strtolower(get_phrase('last')); ?></a></li>
-                </ul>
-            </nav>
-            <?php elseif(isset($pagination) && isset($total_page_number) && $pagination == 'filter_page'): ?>
-            <nav class="text-center" aria-label="Page navigation example">
-                <ul class="pagination justify-content-center">
-                    <li class=""><a class="page-link" href="<?php echo site_url('home/filter_listings/1?'.$_SERVER['QUERY_STRING']); ?>"><?php echo strtolower(get_phrase('first')); ?></a></li>
-                    <?php for($page_number = 1; $page_number <= $total_page_number; $page_number++){ ?>
-                    <li class=""><a class="page-link <?php if($active_page_number == $page_number) { echo 'active'; } ?>" href="<?php echo site_url('home/filter_listings/'.$page_number.'?'.$_SERVER['QUERY_STRING']); ?>"><?php echo $page_number; ?></a></li>
-                    <?php } ?>
-                    <li class=""><a class="page-link" href="<?php echo site_url('home/filter_listings/'.$total_page_number.'?'.$_SERVER['QUERY_STRING']); ?>"><?php echo strtolower(get_phrase('last')); ?></a></li>
-                </ul>
-            </nav>
-        <?php endif; ?>
+{{--            <?php if(isset($pagination) && isset($total_page_number) && $pagination == 'search_page'): ?>--}}
+{{--            <nav class="text-center" aria-label="Page navigation example">--}}
+{{--                <ul class="pagination justify-content-center">--}}
+{{--                    <li class=""><a class="page-link" href="<?php echo site_url('home/search/1?search_string='.$search_string.'&selected_category_id='.$selected_category_id); ?>"><?php echo strtolower(get_phrase('first')); ?></a></li>--}}
+{{--                    <?php for($page_number = 1; $page_number <= $total_page_number; $page_number++){ ?>--}}
+{{--                    <li class=""><a class="page-link <?php if($active_page_number == $page_number) { echo 'active'; } ?>" href="<?php echo site_url('home/search/'.$page_number.'?search_string='.$search_string.'&selected_category_id='.$selected_category_id); ?>"><?php echo $page_number; ?></a></li>--}}
+{{--                    <?php } ?>--}}
+{{--                    <li class=""><a class="page-link" href="<?php echo site_url('home/search/'.$total_page_number.'?search_string='.$search_string.'&selected_category_id='.$selected_category_id); ?>"><?php echo strtolower(get_phrase('last')); ?></a></li>--}}
+{{--                </ul>--}}
+{{--            </nav>--}}
+{{--            <?php elseif(isset($pagination) && isset($total_page_number) && $pagination == 'filter_page'): ?>--}}
+{{--            <nav class="text-center" aria-label="Page navigation example">--}}
+{{--                <ul class="pagination justify-content-center">--}}
+{{--                    <li class=""><a class="page-link" href="<?php echo site_url('home/filter_listings/1?'.$_SERVER['QUERY_STRING']); ?>"><?php echo strtolower(get_phrase('first')); ?></a></li>--}}
+{{--                    <?php for($page_number = 1; $page_number <= $total_page_number; $page_number++){ ?>--}}
+{{--                    <li class=""><a class="page-link <?php if($active_page_number == $page_number) { echo 'active'; } ?>" href="<?php echo site_url('home/filter_listings/'.$page_number.'?'.$_SERVER['QUERY_STRING']); ?>"><?php echo $page_number; ?></a></li>--}}
+{{--                    <?php } ?>--}}
+{{--                    <li class=""><a class="page-link" href="<?php echo site_url('home/filter_listings/'.$total_page_number.'?'.$_SERVER['QUERY_STRING']); ?>"><?php echo strtolower(get_phrase('last')); ?></a></li>--}}
+{{--                </ul>--}}
+{{--            </nav>--}}
+{{--        <?php endif; ?>--}}
         <!-- custom pagination end-->
 
             <nav class="text-center">

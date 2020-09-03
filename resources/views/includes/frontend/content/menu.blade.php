@@ -8,7 +8,11 @@
         <?php if (Auth::check()): ?>
         <li><span><a href="javascript::">Account</a></span>
             <ul class="manage_account_navbar">
-                <li><a href="<?php echo route('dashboard.index');?>">Manage Account</a></li>
+                @if(auth()->user()->role['id'] == 1)
+                    <li><a href="<?php echo route('dashboard.index');?>">Manage Account</a></li>
+                @elseif(auth()->user()->role['id'] ==2)
+                    <li><a href="<?php echo route('user.index');?>">Manage Account</a></li>
+                @endif
                 <form action="{{url('logout')}}" method="post">0
                     @csrf
                     <li><a href="#" onclick="$(this).closest('form').submit();">Logout</a></li>

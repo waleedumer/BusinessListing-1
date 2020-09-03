@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+use Carbon\Carbon;
 use Embed;
 use Illuminate\Database\Eloquent\Model;
 
@@ -73,5 +74,8 @@ class Listing extends Model
 
         $embed->setAttribute(['width' => 800]);
         return $embed->getHtml();
+    }
+    public function time_now(){
+        return Carbon::now();
     }
 }
