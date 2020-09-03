@@ -1,8 +1,8 @@
 <?php
-    if($page_name == 'directory_listing'){
-        $min_zoom_level = get_settings('min_zoom_directory_page');
+    if($page_data['page_name'] == 'directory_listing'){
+        $min_zoom_level = App\Setting::all()->keyBy('type')['min_zoom_directory_page']->description;
     }else{
-        $min_zoom_level = get_settings('min_zoom_listings_page');
+        $min_zoom_level = App\Setting::all()->keyBy('type')['min_zoom_listings_page']->description;
     }
 ?>
 <script type="text/javascript">
@@ -10,10 +10,10 @@
 
 function createListingsMap(options) {
     var defaults = {
-        markerPath: '<?php echo base_url('assets/frontend/images/marker.png') ?>',
-        markerPathHighlight: '<?php echo base_url('assets/frontend/images/marker-hover.png') ?>',
-        markerShadow: '<?php echo base_url('assets/frontend/images/location-pin.svg') ?>',
-        imgBasePath: '<?php echo base_url('uploads/listing_thumbnails/') ?>',
+        markerPath: '<?php echo asset('frontend/images/marker.png') ?>',
+        markerPathHighlight: '<?php echo asset('frontend/images/marker-hover.png') ?>',
+        markerShadow: '<?php echo asset('frontend/images/location-pin.svg') ?>',
+        imgBasePath: '<?php echo asset('uploads/listing_thumbnails/') ?>',
         mapPopupType: 'venue',
         useTextIcon: false
     }
@@ -36,19 +36,19 @@ function createListingsMap(options) {
     */
 
 //new version
-    var map = L.map(settings.mapId).setView([<?= get_settings("default_location"); ?>], 13);
+    var map = L.map(settings.mapId).setView([<?= App\Setting::all()->keyBy('type')["default_location"]->description; ?>], 13);
 
     map.once('focus', function () {
         map.scrollWheelZoom.enable();
     });
 
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-        attribution: '<a href="<?= site_url(); ?>" target="_blank"><?= get_settings("system_title"); ?></a>',
+        attribution: '<a href="<?= url()->full(); ?>" target="_blank"><?= App\Setting::all()->keyBy('type')["system_title"]->description; ?></a>',
         minZoom: '<?= $min_zoom_level; ?>',
-        maxZoom: '<?= get_settings("max_zoom_level"); ?>',
+        maxZoom: '<?= App\Setting::all()->keyBy('type')["max_zoom_level"]->description; ?>',
         id: 'mapbox/streets-v11',
         style: 'mapbox://styles/mapbox/streets-v11',
-        accessToken: '<?= get_settings("map_access_token"); ?>'
+        accessToken: '<?= App\Setting::all()->keyBy('type')["map_access_token"]->description; ?>'
     }).addTo(map);
     /*
     ====================================================
@@ -294,9 +294,9 @@ function createListingsMap(options) {
                 '</div>' +
             '</div>';
 
-            
+
             //OLD CODE OF MAPH LISTING POPUP VIEW
-            
+
             // '<div class="popup-venue card">' +
             //     '<div style = "overflow: hidden;">' +'<img src="' + settings.imgBasePath + properties.image + '" class="card-img-top">'+ '</div>'+
             //     '<div class="card-body">'+

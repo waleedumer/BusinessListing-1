@@ -16,7 +16,11 @@
 <body class="page-body" >
 <div class="page-container">
     <!-- SIDEBAR -->
-    @include('layouts.dashboard-sidebar')
+    @if(strtolower(auth()->user()->role['name'])=='admin')
+        @include('layouts.dashboard-sidebar')
+    @elseif(strtolower(auth()->user()->role['name'])=='user')
+        @include('includes.admin-dashboard.user-dashboard.navigation');
+    @endif
     <div class="main-content">
 
         <!-- Topbar Start -->
@@ -28,7 +32,11 @@
         </h3>
 
         <!-- Start Content-->
-        @include('includes.admin-dashboard.content.'.$page_data['page_name'])
+        @if(strtolower(auth()->user()->role['name'])=='admin')
+            @include('includes.admin-dashboard.content.'.$page_data['page_name'])
+        @elseif(strtolower(auth()->user()->role['name'])=='user')
+            @include('includes.admin-dashboard.user-dashboard.'.$page_data['page_name']);
+        @endif
     <!-- Footer starts here -->
 {{--        @include('includes.footer')--}}
     </div>

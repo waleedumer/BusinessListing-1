@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Amenity;
 use App\Category;
+use App\City;
 use App\ClaimedListing;
 use App\Country;
 use App\Listing;
@@ -62,6 +63,12 @@ class ListingsController extends Controller
     public function show($id)
     {
         //
+        $listing_details=Listing::find($id);
+        $page_data=['page_name'=>'listing','page_title'=>'Listing'];
+        $categories=Category::all();;
+        $amenities=Amenity::all();
+        $cities=City::all();
+        return view('frontend.index',compact(['page_data','listing_details','categories','amenities','cities']));
     }
 
     /**

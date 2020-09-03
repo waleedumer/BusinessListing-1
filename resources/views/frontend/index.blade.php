@@ -33,11 +33,13 @@
     </main>
 
     <!-- Site footer -->
-<!--    --><?php
-//    if(!($page_name == 'listings' && $this->session->userdata('listings_view') == 'list_view')):
-//        include 'footer.blade.php';
-//    endif;
-//    ?>
+    <?php
+    if(!($page_data['page_name'] == 'listings' && session('listings_view') == 'list_view')):
+    ?>
+        @include ('includes.frontend.content.footer');
+    <?php
+    endif;
+    ?>
 </div>
 
 <!-- Signin popup -->

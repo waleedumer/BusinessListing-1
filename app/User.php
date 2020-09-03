@@ -50,4 +50,28 @@ class User extends Authenticatable
             return false;
         }
     }
+    public function package(){
+        return $this->hasOne('App\Package');
+    }
+    public function bookings(){
+        return $this->hasMany('App\Booking');
+    }
+    public function package_purchased_history(){
+        return $this->hasMany('App\PackagePurchasedHistory');
+    }
+    public function wishlist(){
+        return $this->belongsToMany('App\Listing')->withPivot('is_wishlisted')->withTimestamps();
+    }
+    public function listings(){
+        return $this->hasMany('App\Listing');
+    }
+    public function role(){
+        return $this->belongsTo('App\Role');
+    }
+    public function packages(){
+        return $this->belongsToMany('App\Package')->withPivot('expired_date','amount_paid','purchase_date','payment_method');
+    }
+    public function reviews(){
+        return $this->belongsTo('App\Review');
+    }
 }

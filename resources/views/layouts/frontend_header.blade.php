@@ -33,7 +33,7 @@
 
 <div class="sub_header_in sticky_header">
     <div class="container">
-        <h1><?php echo $title ?? ''; ?></h1>
+        <h1><?php echo $page_data['page_title']??''; ?></h1>
     </div>
     <!-- /container -->
 </div>
