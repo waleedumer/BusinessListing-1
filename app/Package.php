@@ -11,4 +11,7 @@ class Package extends Model
     public function listings(){
         return $this->belongsToMany('App\Listing');
     }
+    public function user(){
+        return $this->belongsToMany('App\User');
+    }
 }

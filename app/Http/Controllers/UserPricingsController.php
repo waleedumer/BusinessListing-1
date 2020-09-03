@@ -21,4 +21,10 @@ class UserPricingsController extends Controller
         $settings=Setting::all()->keyBy('type');
         return view('admin.index',compact(['page_data','purchase_histories','settings']));
     }
+    public function print_invoice($id){
+        $page_data=['page_name'=>'package_invoice','page_title'=>'Package Invoice'];
+        $purchase_history=Package::find($id);
+        $settings=Setting::all()->keyBy('type');
+        return view('admin.index',compact(['page_data','purchase_history','settings']));
+    }
 }

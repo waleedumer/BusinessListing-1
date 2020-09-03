@@ -57,12 +57,15 @@
         }
         else{
             jQuery('#modal-4').modal('show', {backdrop: 'static'});
-            document.getElementById('delete_link').setAttribute('href' , delete_url);
+            document.getElementById('delete_link').setAttribute('action' , delete_url);
         }
     }
 </script>
 
 <!-- (Normal Modal)-->
+<form action="#" id="delete_link" method="post">
+    @csrf
+    @method('delete')
 <div class="modal fade" id="modal-4">
     <div class="modal-dialog">
         <div class="modal-content" style="margin-top:100px;">
@@ -74,13 +77,13 @@
 
 
             <div class="modal-footer" style="margin:0px; border-top:0px; text-align:center;">
-                <a href="#" class="btn btn-danger" id="delete_link">Delete</a>
+                <button class="btn btn-danger" type="submit">Delete</button>
                 <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
             </div>
         </div>
     </div>
 </div>
-
+</form>
 <!-- (generic_confirmation Modal)-->
 <div class="modal fade" id="modal-generic_confirmation">
     <div class="modal-dialog">

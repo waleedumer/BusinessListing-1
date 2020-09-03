@@ -1,7 +1,6 @@
 <?php
-$user_details = $this->db->get_where('user', array('id' => $purchase_history['user_id']))->row_array();
-$package_details = $this->db->get_where('package', array('id' => $purchase_history['package_id']))->row_array();
-$settings=App\Setting::all()->keyBy('type');
+$user_details = $purchase_history->user->first();
+$package_details = $purchase_history;
 ?>
 
 <div class="row">
@@ -45,7 +44,7 @@ $settings=App\Setting::all()->keyBy('type');
 
                         <div class="col-sm-3 invoice-left">
 
-                            <h4><?php echo get_phrase('billing_from'); ?></h4>
+                            <h4>Billing from</h4>
                             <?php echo $settings['website_title']->description; ?><br>
                             <?php echo $settings['address']->description; ?><br>
                             <?php echo $settings['phone']->description; ?><br>
@@ -56,7 +55,7 @@ $settings=App\Setting::all()->keyBy('type');
                             <h4>Payment details:</h4>
                             <strong>Purchase date:</strong> <?php echo date('D, d-M-Y', $purchase_history['purchase_date']); ?>
                             <br />
-                            <strong>Purchase status:</strong> <span class="label label-success float-right"><?php echo get_phrase('paid'); ?></span>
+                            <strong>Purchase status:</strong> <span class="label label-success float-right">Paid</span>
                             <br />
                             <strong>Order id no:</strong> <span class="float-right"><?php echo sprintf('%07d', $purchase_history['id']); ?></span>
 
@@ -84,8 +83,8 @@ $settings=App\Setting::all()->keyBy('type');
                                 <b><?php echo $package_details['name']; ?></b> <br/>
                             </td>
                             <td><?php echo date('D, d-M-Y', $purchase_history['expired_date']); ?></td>
-                            <td><?php echo $settings['system_currency']->description.' '.($purchase_history['amount_paid']); ?></td>
-                            <td class="text-right"><?php echo $settings['system_currency']->description.''.($purchase_history['amount_paid']); ?></td>
+                            <td><?php echo $settings['system_currency']->description.' '.($purchase_history['price']); ?></td>
+                            <td class="text-right"><?php echo $settings['system_currency']->description.''.($purchase_history['price']); ?></td>
                         </tr>
                         </tbody>
                     </table>
@@ -105,11 +104,11 @@ $settings=App\Setting::all()->keyBy('type');
                                 <ul class="list-unstyled">
                                     <li>
                                         Sub total amount:
-                                        <strong><?php echo $settings['system_currency']->description." ".($purchase_history['amount_paid']); ?></strong>
+                                        <strong><?php echo $settings['system_currency']->description." ".($purchase_history['price']); ?></strong>
                                     </li>
                                     <li>
                                       Grand total:
-                                        <strong><?php echo $settings['system_currency']->description." ".($purchase_history['amount_paid']); ?></strong>
+                                        <strong><?php echo $settings['system_currency']->description." ".($purchase_history['price']); ?></strong>
                                     </li>
                                 </ul>
 
