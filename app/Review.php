@@ -11,4 +11,7 @@ class Review extends Model
     public function listing(){
         return $this->belongsTo('App\Listing');
     }
+    public function user(){
+        return $this->belongsTo('App\User','reviewer_id');
+    }
 }

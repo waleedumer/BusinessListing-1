@@ -136,7 +136,7 @@
             </section>
             <!-- /section -->
             <!-- Section Of Review Starts -->
-<!--        --><?php //include 'listing_reviews.php'; ?>
+<!--        -->@include('includes.frontend.content.listing_reviews')
         <!-- section -->
 
         <?php $google_analytics_id = $listing_details['google_analytics_id']; ?>

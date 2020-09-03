@@ -71,4 +71,7 @@ class User extends Authenticatable
     public function packages(){
         return $this->belongsToMany('App\Package')->withPivot('expired_date','amount_paid','purchase_date','payment_method');
     }
+    public function reviews(){
+        return $this->belongsTo('App\Review');
+    }
 }

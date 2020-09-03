@@ -115,7 +115,7 @@
 
         <!-- Manage Profile -->
         <li class="<?php if ($page_data['page_name'] == 'manage_profile') echo 'active'; ?>">
-            <a href="<?php echo url('user/manage_profile'.'/'.auth()->user()->id); ?>">
+            <a href="<?php echo route('user/manage_profile',auth()->user()->id); ?>">
                 <i class="fa fa-user"></i>
                 <span>Account</span>
             </a>
