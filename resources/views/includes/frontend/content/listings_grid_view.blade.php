@@ -341,8 +341,8 @@ isset($search_string) ? "": $search_string = "";
                                 <div class="score">
 									<span>
 										<?php
-                                        if (count($listing->reviews) > 0) {
-                                            $quality = $listing->reviews->first()->rating_review;
+                                        if (($listing->reviews()->count()) > 0) {
+                                            $quality = $listing->reviews->first()['review_rating'];
                                             echo $quality;
                                         }else {
                                             'Unreviewed';
