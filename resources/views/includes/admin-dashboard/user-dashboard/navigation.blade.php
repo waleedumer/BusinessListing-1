@@ -29,7 +29,7 @@
         <br>
         <!-- Home -->
         <li class="<?php if ($page_data['page_name'] == 'dashboard') echo 'active'; ?> " style="border-top:1px solid #232540;">
-            <a href="<?php echo url('user/dashboard'); ?>">
+            <a href="<?php echo route('user.dashboard'); ?>">
                 <i class="fa fa-home"></i>
                 <span>Dashboard</span>
             </a>

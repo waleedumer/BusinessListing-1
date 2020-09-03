@@ -24,9 +24,9 @@
                     <tr>
                         <td><?php echo $key + 1; ?></td>
                         <td>
-                            <?php echo $this->db->get_where('package', array('id' => $purchase_history['package_id']))->row('name'); ?>
+                            <?php echo $purchase_history['name']; ?>
                             <?php
-                            $active_package = auth()->user()->package;
+                            $active_package = auth()->user()->packages->last();
                             if ($active_package['id'] == $purchase_history['id']): ?>
                             <br> <small><span class="badge badge-success ">Currently active</span></small>
                             <?php endif; ?>

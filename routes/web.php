@@ -71,12 +71,19 @@ Route::get('/home/pricing','FrontendPricingController@index');
 Route::get('/home/blog','FrontendBlogsController@index');
 Route::get('/home/listings','FrontendListingsController@index');
 Route::group(['middleware'=>'user'], function(){
-    Route::resource('/user','UserController')->except('show','delete','create','update','store');
+    Route::get('/user','UserController@index');
+    Route::get('user/dashboard','UserController@index')->name('user.dashboard');
     Route::resource('/user/listings','UserListingsController',[
         'as'=>'user'
     ]);
     Route::get('user/wishlists','UserWishlistsController@index')->name('user.wishlists');
     Route::get('user/manage_profile','UserManageProfilesController@index')->name('user.manage_profile');
+    Route::get('user/booking_request_beauty','UserBookingRequestController@beauty')->name('user.booking.beauty');
+    Route::get('user/booking_request_hotel','UserBookingRequestController@hotel')->name('user.booking.hotel');
+    Route::get('user/booking_request_restaurant','UserBookingRequestController@restaurant')->name('user.booking.restaurant');
+    Route::get('user/packages','UserPricingsController@packages')->name('user.packages');
+    Route::get('user/purchase_history','UserPricingsController@purchase_history')->name('user.purchase_history');
+
 });
 
 Auth::routes();

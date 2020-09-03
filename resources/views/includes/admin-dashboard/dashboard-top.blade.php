@@ -21,7 +21,7 @@
 <link href="<?php echo asset('backend/css/main.css') ?>" rel="stylesheet" type="text/css" />
 <!-- RTL Theme -->
 <?php if ($text_align ?? '' == 'right-to-left') : ?>
-    <link rel="stylesheet" href="<?php echo base_url('assets/backend/css/neon-rtl.css');?>">
+    <link rel="stylesheet" href="<?php echo asset('assets/backend/css/neon-rtl.css');?>">
 <?php endif; ?>
 <script src="<?php echo asset('backend/js/jquery-2.2.4.min.js'); ?>" charset="utf-8"></script>
 <!-- AM Chart resources -->

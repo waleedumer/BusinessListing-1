@@ -16,8 +16,14 @@ mix.js('resources/js/app.js', 'public/js')
     .copyDirectory('resources/js/backend', 'public/backend/js')
     .copyDirectory('resources/css/backend', 'public/backend/css')
     .copyDirectory('resources/global', 'public/global')
-    .copyDirectory('resources/fonts/backend/webfonts', 'public/backend/webfonts')
+    .copyDirectory('resources/webfonts/backend', 'public/backend/webfonts')
     .copyDirectory('resources/uploads', 'public/uploads')
     .copyDirectory('resources/js/frontend', 'public/frontend/js')
-    .copyDirectory('resources/css/frontend', 'public/frontend/css');
+    .copyDirectory('resources/css/frontend', 'public/frontend/css')
+    .copyDirectory('resources/images/frontend','public/frontend/images')
+    .copyDirectory('resources/images/backend','public/backend/images')
+    .copyDirectory('resources/fonts/backend','public/backend/fonts')
+    .copyDirectory('resources/backend-login','public/backend/login')
+    .copyDirectory('resources/sass/frontend','public/frontend/sass')
+    .copyDirectory('resources/captcha/frontend','public/frontend/captcha');
 
