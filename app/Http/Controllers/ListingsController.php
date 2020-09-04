@@ -21,6 +21,7 @@ class ListingsController extends Controller
     public function index()
     {
         //
+        
         $page_data=['page_name'=>'listings','page_title'=>'Directories'];
         $users=User::all();
         $listings=Listing::all();
@@ -51,7 +52,11 @@ class ListingsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        echo '<pre>';
+        print_r($request->all());
+        die();
+        Listing::create();
+        echo 'created';
     }
 
     /**

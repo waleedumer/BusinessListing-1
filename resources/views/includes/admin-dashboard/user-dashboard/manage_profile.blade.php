@@ -10,9 +10,7 @@
                 </div>
             </div>
             <div class="panel-body">
-                <form action="<?php echo route('user.manage_profile_id',$user_info['id']); ?>" method="post" enctype="multipart/form-data" role="form" class="form-horizontal form-groups-bordered">
-                    @csrf
-                    @method('put')
+                <form action="<?php echo url('user/manage_profile/update_profile_info/'.$user_info['id']); ?>" method="post" enctype="multipart/form-data" role="form" class="form-horizontal form-groups-bordered">
                     <div class="form-group">
                         <label for="name" class="col-sm-3 control-label">Name</label>
                         <div class="col-sm-7">

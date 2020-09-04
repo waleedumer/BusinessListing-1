@@ -7,7 +7,8 @@
                 </div>
             </div>
             <div class="panel-body">
-                <form action="{{route('listings.store')}}" method="post" enctype="multipart/form-data" role="form" class="form-horizontal form-groups-bordered listing_add_form">
+                <form action="{{route('listing.store')}}" method="post" enctype="multipart/form-data" role="form" class="form-horizontal form-groups-bordered listing_add_form">
+                    @csrf
                     <div class="col-md-12">
                         <ul class="nav nav-tabs bordered"><!-- available classes "bordered", "right-aligned" -->
                             <li class="active">

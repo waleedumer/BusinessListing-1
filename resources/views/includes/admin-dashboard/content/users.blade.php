@@ -17,7 +17,7 @@
                     <tr>
                         <th width="80"><div>#</div></th>
                         <th><div>Photo</div></th>
-                        <th><div>Name</div></th>
+                        <th><div>Name/div></th>
                         <th><div>Email</div></th>
                         <th><div>Phone</div></th>
                         <th><div>Social links</div></th>

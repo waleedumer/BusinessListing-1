@@ -11,9 +11,7 @@
             <div class="col-lg-9 col-12">
                 <ul id="top_menu">
                     <li><a href="<?php echo url('home/add_listing');?>" class="btn_add">Add Listing</a></li>
-                    @if(!Auth::check())
                     <li><a href="#sign-in-dialog" id="sign-in" class="login" title="Sign In">Sign In</a></li>
-                    @endif
                 </ul>
                 <!-- /top_menu -->
                 <a href="#menu" class="btn_mobile">

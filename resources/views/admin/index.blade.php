@@ -31,7 +31,7 @@
             {{$page_data['page_title']??''}}
         </h3>
 
-        <!-- Start Content-->
+        <!-- Start Contentddd-->
         @if(strtolower(auth()->user()->role['name'])=='admin')
             @include('includes.admin-dashboard.content.'.$page_data['page_name'])
         @elseif(strtolower(auth()->user()->role['name'])=='user')

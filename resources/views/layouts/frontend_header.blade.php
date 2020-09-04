@@ -10,7 +10,7 @@
             </div>
             <div class="col-lg-9 col-12">
                 <ul id="top_menu">
-                    <?php if (!Auth::check()): ?>
+                    <?php if (Auth::check()): ?>
                     <li><a href="<?php echo url('login'); ?>" class="login" title="Sign In">Sign In</a></li>
                     <?php endif; ?>
                 </ul>

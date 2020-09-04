@@ -19,7 +19,8 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <?php $bookings = auth()->user()->bookings()->latest();
+                    <?php $this->db->order_by('id', 'DESC'); ?>
+                    <?php $bookings = auth()->user()->bookings;
                     $count = 1;
                     foreach($bookings as $booking): ?>
                     <tr>

@@ -62,13 +62,10 @@
                     </li>
 
                     <li>
-                        <form action="{{route('logout')}}" method="post">
-                            @csrf
-                        <button type="submit">
+                        <a href="<?php echo url('logout');?>">
                             <i class="flaticon-paper-plane-1"></i>
                             Log Out
-                        <button>
-                        </form>>
+                        </a>
                     </li>
 
                 </ul>

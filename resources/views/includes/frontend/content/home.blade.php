@@ -47,7 +47,7 @@
             <div class="col-lg-4 col-md-6">
                 <a href="<?php echo url('home/filter_listings?category='.Illuminate\Support\Str::of($category['name'])->slug('-').'&&amenity=&&video=0&&status=all'); ?>" class="grid_item">
                     <figure>
-                        <img src="<?php echo asset('uploads/category_thumbnails/').$category['thumbnail'];?>" alt="">
+                        <img src="{{ asset('uploads/category_thumbnails/') }}/{{$category['thumbnail']}}" alt="">
                         <div class="info">
                             <small><?php echo count(App\Category::find($category['id'])->listings); ?>Listings</small>
                             <h3><?php echo $category['name']; ?></h3>
@@ -121,8 +121,8 @@
                     <a class="address" href="http://maps.google.com/maps?q=<?php echo $listing['latitude']; ?>,<?php echo $listing['longitude']; ?>" target="_blank">Get Directions</a>
                 </div>
                 <ul>
-                <!-- <li><span class="loc_open"><?php echo $listing->time; ?></span></li> -->
-                    <li><span class="<?php echo ($listing->time) == 'closed' ? 'loc_closed' : 'loc_open'; ?>"><?php echo $listing->time; ?></span></li>
+                    <li><span class="loc_open">OPEN</span></li> 
+                    <li><span class="<?php echo ($listing->time == 'closed' ? 'loc_closed' : 'loc_open'); ?>"></span></li>
                     <li><div class="score"><span>
 						<?php
                                 if ($listing->reviews->first()->reviw_rating > 0) {
@@ -132,7 +132,7 @@
                                     echo 'Unreviewed';
                                 }
                                 ?>
-						<em><?php echo count($listing->reviews).' '.'Reviews'; ?></em></span><strong>{{$listing->reviews}}); ?></strong></div></li>
+						<em><?php echo count($listing->reviews).' '.'Reviews'; ?></em></span><strong>{{$listing->reviews[0]->review_rating}}</strong></div></li>
                 </ul>
             </div>
         </div>
