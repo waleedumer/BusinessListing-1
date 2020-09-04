@@ -53,19 +53,16 @@
         window.scrollTo(0, 0);
         if (modal_type === 'generic_confirmation') {
             jQuery('#modal-generic_confirmation').modal('show', {backdrop: 'static'});
-            document.getElementById('update_link').setAttribute('action' , delete_url);
+            document.getElementById('update_link').setAttribute('href' , delete_url);
         }
         else{
             jQuery('#modal-4').modal('show', {backdrop: 'static'});
-            document.getElementById('delete_link').setAttribute('action' , delete_url);
+            document.getElementById('delete_link').setAttribute('href' , delete_url);
         }
     }
 </script>
 
 <!-- (Normal Modal)-->
-<form action="#" id="delete_link" method="post">
-    @csrf
-    @method('delete')
 <div class="modal fade" id="modal-4">
     <div class="modal-dialog">
         <div class="modal-content" style="margin-top:100px;">
@@ -77,17 +74,14 @@
 
 
             <div class="modal-footer" style="margin:0px; border-top:0px; text-align:center;">
-                <button class="btn btn-danger" type="submit">Delete</button>
+                <a href="#" class="btn btn-danger" id="delete_link">Delete</a>
                 <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
             </div>
         </div>
     </div>
 </div>
-</form>
+
 <!-- (generic_confirmation Modal)-->
-<form action="#" id="update_link" method="post">
-    @csrf
-    @method('put')
 <div class="modal fade" id="modal-generic_confirmation">
     <div class="modal-dialog">
         <div class="modal-content" style="margin-top:100px;">
@@ -99,10 +93,36 @@
 
 
             <div class="modal-footer" style="margin:0px; border-top:0px; text-align:center;">
-                <button class="btn btn-danger" type="submit">Yes</button>
+                <a href="#" class="btn btn-danger" id="update_link">Yes</a>
                 <button type="button" class="btn btn-info" data-dismiss="modal">No</button>
             </div>
         </div>
     </div>
 </div>
-</form>
+
+<div class="container">
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

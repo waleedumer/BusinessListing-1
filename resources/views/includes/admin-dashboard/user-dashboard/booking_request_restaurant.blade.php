@@ -19,7 +19,8 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <?php $bookings = auth()->user()->bookings()->latest();
+                    <?php $this->db->order_by('id', 'DESC'); ?>
+                    <?php $bookings = auth()->user()->bookings;
                     $count = 1;
                     foreach($bookings as $booking): ?>
                     <tr>
@@ -27,7 +28,7 @@
                         <td><?php echo $booking->listing['name'] ; ?></td>
                         <td>
                             <?php
-                            $listing_type = $booking->listing['listing_type'];
+                            $listing_type = $booking->listing['listing_type']$this->db->get_where('listing', array('id' => $booking['listing_id']))->row('listing_type');
                             if($listing_type == 'hotel'){
                                 $booking_date = explode(' - ', $booking['booking_date']);
                                 echo 'Booking date'.' : <b>'.date('d M Y', $booking_date[0]).' - '.date('d M Y', $booking_date[1]).'</b>';

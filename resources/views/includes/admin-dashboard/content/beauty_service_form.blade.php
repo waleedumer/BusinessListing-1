@@ -9,17 +9,17 @@
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="panel panel-primary" data-collapsed="0">
                         <div class="panel-body">
-                            <h5 class="card-title mb-0"><?php echo get_phrase('beauty_service'); ?></h5>
+                            <h5 class="card-title mb-0"><?php echo ('beauty_service'); ?></h5>
                             <div class="collapse show" style="padding-top: 10px;">
                                 <div class="row no-margin">
                                     <div class="col-lg-8">
                                         <div class="form-group">
-                                            <label for="service_name"><?php echo get_phrase('service_name'); ?></label>
+                                            <label for="service_name"><?php echo ('service_name'); ?></label>
                                             <input id="service_name" type="text" name="service_name[]" class="form-control" />
                                         </div>
 
                                         <div class="row">
-                                            <div class="col-12"><label><?php echo get_phrase('service_time'); ?></label></div>
+                                            <div class="col-12"><label><?php echo ('service_time'); ?></label></div>
                                             <div class="form-group  mb-2 col-md-5">
                                                 <div class="input-group">
                                                     <input type="time" onchange="service_time()" name="starting_time[]" class="form-control" required>
@@ -28,7 +28,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-2  mb-2 text-center pt-1"><?php echo get_phrase('to'); ?></div>
+                                            <div class="col-md-2  mb-2 text-center pt-1"><?php echo ('to'); ?></div>
                                             <div class="form-group  mb-2 col-md-5">
                                                 <div class="input-group">
                                                     <input type="time" name="ending_time[]" class="form-control" required>
@@ -40,14 +40,14 @@
                                         </div>
 
                                         <div class="form-group  mb-2">
-                                            <label><?php echo get_phrase('service_duration'); ?></label>
+                                            <label><?php echo ('service_duration'); ?></label>
                                             <div class="input-group">
                                                 <input type="number" name="duration[]" placeholder="Minute" class="form-control" required>
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="service_price"><?php echo get_phrase('service_price').' ('.currency_code_and_symbol().')'; ?></label>
+                                            <label for="service_price"><?php echo ('service_price') ?></label>
                                             <input id="service_price" type="text" name="service_price[]" class="form-control" />
                                         </div>
                                     </div>
@@ -56,7 +56,7 @@
                                             <div class="box">
                                                 <div class="js--image-preview"></div>
                                                 <div class="upload-options">
-                                                    <label for="service-image-1" class="btn"> <i class="entypo-camera"></i> <?php echo get_phrase('upload_service_image'); ?>  <small>(200 X 200) </small> </label>
+                                                    <label for="service-image-1" class="btn"> <i class="entypo-camera"></i> <?php echo ('upload_service_image'); ?>  <small>(200 X 200) </small> </label>
                                                     <input id="service-image-1" style="visibility:hidden;" type="file" class="image-upload" name="service_image[]" accept="image/*">
                                                 </div>
                                             </div>
@@ -72,7 +72,7 @@
     </div>
 
     <div class="row text-center">
-        <button type="button" class="btn btn-primary" name="button" onclick="appendBeautyService()"> <i class="mdi mdi-plus"></i> <?php echo get_phrase('add_new_beauty_service'); ?></button>
+        <button type="button" class="btn btn-primary" name="button" onclick="appendBeautyService()"> <i class="mdi mdi-plus"></i> <?php echo ('add_new_beauty_service'); ?></button>
     </div>
 </div>
 
@@ -82,19 +82,19 @@
             <div class="col-lg-8 col-lg-offset-2">
                 <div class="panel panel-primary" data-collapsed="0">
                     <div class="panel-body">
-                        <h5 class="card-title mb-0"><?php echo get_phrase('beauty_service'); ?>
-                            <button type="button" class="btn btn-danger btn-sm btn-rounded alignToTitleOnPreview" name="button" onclick="removeBeautyService(this)"><?php echo get_phrase('remove_this_beauty_service'); ?></button>
+                        <h5 class="card-title mb-0"><?php echo ('beauty_service'); ?>
+                            <button type="button" class="btn btn-danger btn-sm btn-rounded alignToTitleOnPreview" name="button" onclick="removeBeautyService(this)"><?php echo ('remove_this_beauty_service'); ?></button>
                         </h5>
                         <div class="collapse show" style="padding-top: 10px;">
                             <div class="row no-margin">
                                 <div class="col-lg-8">
                                     <div class="form-group">
-                                        <label for="service_name"><?php echo get_phrase('service_name'); ?></label>
+                                        <label for="service_name"><?php echo ('service_name'); ?></label>
                                         <input id="service_name" type="text" name="service_name[]" class="form-control" />
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-12"><label><?php echo get_phrase('service_time'); ?></label></div>
+                                        <div class="col-12"><label><?php echo ('service_time'); ?></label></div>
                                         <div class="form-group  mb-2 col-md-5">
                                             <div class="input-group">
                                                 <input type="time" name="starting_time[]" class="form-control timepicker" required>
@@ -103,7 +103,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-2  mb-2 text-center pt-1"><?php echo get_phrase('to'); ?></div>
+                                        <div class="col-md-2  mb-2 text-center pt-1"><?php echo ('to'); ?></div>
                                         <div class="form-group  mb-2 col-md-5">
                                             <div class="input-group">
                                                 <input type="time" name="ending_time[]" class="form-control timepicker" required>
@@ -115,14 +115,14 @@
                                     </div>
 
                                     <div class="form-group  mb-2">
-                                        <label><?php echo get_phrase('service_duration'); ?></label>
+                                        <label><?php echo ('service_duration'); ?></label>
                                         <div class="input-group">
                                             <input type="number" name="duration[]" placeholder="Minute"  class="form-control" required>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="service_price"><?php echo get_phrase('service_price').' ('.currency_code_and_symbol().')'; ?></label>
+                                        <label for="service_price"><?php echo ('service_price') ?></label>
                                         <input type="text" name="service_price[]" class="form-control" />
                                     </div>
 
@@ -132,7 +132,7 @@
                                         <div class="box">
                                             <div class="js--image-preview"></div>
                                             <div class="upload-options">
-                                                <label for="" class="btn"> <i class="entypo-camera"></i> <?php echo get_phrase('upload_service_image'); ?> <small>(200 X 200) </small> </label>
+                                                <label for="" class="btn"> <i class="entypo-camera"></i> <?php echo ('upload_service_image'); ?> <small>(200 X 200) </small> </label>
                                                 <input id="" style="visibility:hidden;" type="file" class="image-upload" name="service_image[]" accept="image/*">
                                             </div>
                                         </div>

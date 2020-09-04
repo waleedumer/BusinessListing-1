@@ -10,7 +10,6 @@ isset($price_range) ? "" 			: $price_range = 0;
 isset($with_video) ? "" 	: $with_video = "";
 isset($with_open) ? "" 	: $with_open = "";
 isset($search_string) ? "": $search_string = "";
-$settings=App\Setting::all()->keyBy('type');
 ?>
 <div id="results">
     <div class="container">
@@ -165,7 +164,7 @@ $settings=App\Setting::all()->keyBy('type');
                         <div class="filter_type">
                             <h6>Price limit</h6>
                             <div class="distance"> Price within <span></span>{{App\Setting::all()->keyBy('type')['system_currency']->description}}</div>
-                            <input type="range" class="price-range" min="0" max="<?php// echo $this->frontend_model->get_the_maximum_price_limit_of_all_listings(); ?>" step="10" value="<?php echo $price_range; ?>" data-orientation="horizontal" onchange="filter(this)">
+                            <input type="range" class="price-range" min="0" max="3" step="10" value="<?php echo $price_range; ?>" data-orientation="horizontal" onchange="filter(this)">
                         </div>
 
                         <div class="filter_type">
@@ -337,7 +336,7 @@ $settings=App\Setting::all()->keyBy('type');
                         </div>
                         <ul class="<?php if($listing['is_featured'] == 1) echo 'featured-footer'; ?> mb-0">
 
-                            <li><span class="<?php echo \Carbon\Carbon::now() == 'closed' ? 'loc_closed' : 'loc_open'; ?>">{{\Carbon\Carbon::now($settings['timezone']->description)->hour}}</span></li>
+                            <li><span class="<?php echo $listing->time == 'closed' ? 'loc_closed' : 'loc_open'; ?>">{{$listing->time}}</span></li>
                             <li>
                                 <div class="score">
 									<span>
@@ -350,7 +349,7 @@ $settings=App\Setting::all()->keyBy('type');
                                         }
                                         ?>
 										<em>
-											<?php echo $listing->reviews()->count().' '.'Reviews'; ?>
+											<?php echo count($listing->reviews).' '.'Reviews'; ?>
 										</em>
 									</span>
                                     <strong><?php echo $listing->reviews->first()->rating_review; ?></strong></div>
@@ -363,27 +362,27 @@ $settings=App\Setting::all()->keyBy('type');
             </div>
 
             <!-- custom pagination -->
-{{--            <?php if(isset($pagination) && isset($total_page_number) && $pagination == 'search_page'): ?>--}}
-{{--            <nav class="text-center" aria-label="Page navigation example">--}}
-{{--                <ul class="pagination justify-content-center">--}}
-{{--                    <li class=""><a class="page-link" href="<?php echo site_url('home/search/1?search_string='.$search_string.'&selected_category_id='.$selected_category_id); ?>"><?php echo strtolower(get_phrase('first')); ?></a></li>--}}
-{{--                    <?php for($page_number = 1; $page_number <= $total_page_number; $page_number++){ ?>--}}
-{{--                    <li class=""><a class="page-link <?php if($active_page_number == $page_number) { echo 'active'; } ?>" href="<?php echo site_url('home/search/'.$page_number.'?search_string='.$search_string.'&selected_category_id='.$selected_category_id); ?>"><?php echo $page_number; ?></a></li>--}}
-{{--                    <?php } ?>--}}
-{{--                    <li class=""><a class="page-link" href="<?php echo site_url('home/search/'.$total_page_number.'?search_string='.$search_string.'&selected_category_id='.$selected_category_id); ?>"><?php echo strtolower(get_phrase('last')); ?></a></li>--}}
-{{--                </ul>--}}
-{{--            </nav>--}}
-{{--            <?php elseif(isset($pagination) && isset($total_page_number) && $pagination == 'filter_page'): ?>--}}
-{{--            <nav class="text-center" aria-label="Page navigation example">--}}
-{{--                <ul class="pagination justify-content-center">--}}
-{{--                    <li class=""><a class="page-link" href="<?php echo site_url('home/filter_listings/1?'.$_SERVER['QUERY_STRING']); ?>"><?php echo strtolower(get_phrase('first')); ?></a></li>--}}
-{{--                    <?php for($page_number = 1; $page_number <= $total_page_number; $page_number++){ ?>--}}
-{{--                    <li class=""><a class="page-link <?php if($active_page_number == $page_number) { echo 'active'; } ?>" href="<?php echo site_url('home/filter_listings/'.$page_number.'?'.$_SERVER['QUERY_STRING']); ?>"><?php echo $page_number; ?></a></li>--}}
-{{--                    <?php } ?>--}}
-{{--                    <li class=""><a class="page-link" href="<?php echo site_url('home/filter_listings/'.$total_page_number.'?'.$_SERVER['QUERY_STRING']); ?>"><?php echo strtolower(get_phrase('last')); ?></a></li>--}}
-{{--                </ul>--}}
-{{--            </nav>--}}
-{{--        <?php endif; ?>--}}
+            <?php if(isset($pagination) && isset($total_page_number) && $pagination == 'search_page'): ?>
+            <nav class="text-center" aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class=""><a class="page-link" href="<?php echo site_url('home/search/1?search_string='.$search_string.'&selected_category_id='.$selected_category_id); ?>"><?php echo strtolower(get_phrase('first')); ?></a></li>
+                    <?php for($page_number = 1; $page_number <= $total_page_number; $page_number++){ ?>
+                    <li class=""><a class="page-link <?php if($active_page_number == $page_number) { echo 'active'; } ?>" href="<?php echo site_url('home/search/'.$page_number.'?search_string='.$search_string.'&selected_category_id='.$selected_category_id); ?>"><?php echo $page_number; ?></a></li>
+                    <?php } ?>
+                    <li class=""><a class="page-link" href="<?php echo site_url('home/search/'.$total_page_number.'?search_string='.$search_string.'&selected_category_id='.$selected_category_id); ?>"><?php echo strtolower(get_phrase('last')); ?></a></li>
+                </ul>
+            </nav>
+            <?php elseif(isset($pagination) && isset($total_page_number) && $pagination == 'filter_page'): ?>
+            <nav class="text-center" aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class=""><a class="page-link" href="<?php echo site_url('home/filter_listings/1?'.$_SERVER['QUERY_STRING']); ?>"><?php echo strtolower(get_phrase('first')); ?></a></li>
+                    <?php for($page_number = 1; $page_number <= $total_page_number; $page_number++){ ?>
+                    <li class=""><a class="page-link <?php if($active_page_number == $page_number) { echo 'active'; } ?>" href="<?php echo site_url('home/filter_listings/'.$page_number.'?'.$_SERVER['QUERY_STRING']); ?>"><?php echo $page_number; ?></a></li>
+                    <?php } ?>
+                    <li class=""><a class="page-link" href="<?php echo site_url('home/filter_listings/'.$total_page_number.'?'.$_SERVER['QUERY_STRING']); ?>"><?php echo strtolower(get_phrase('last')); ?></a></li>
+                </ul>
+            </nav>
+        <?php endif; ?>
         <!-- custom pagination end-->
 
             <nav class="text-center">

@@ -48,7 +48,7 @@
 			<div class="col-lg-4 col-md-6">
 				<a href="<?php echo site_url('home/filter_listings?category='.slugify($category['name']).'&&amenity=&&video=0&&status=all'); ?>" class="grid_item">
 					<figure>
-						<img src="<?php echo base_url('uploads/category_thumbnails/').$category['thumbnail'];?>" alt="">
+						<img src="{{ asset('uploads/category_thumbnails') }}/{{$category['thumbnail']}}" alt="ddd">
 						<div class="info">
 							<small><?php echo count($this->frontend_model->get_category_wise_listings($category['id'])).' '.get_phrase('listings'); ?></small>
 							<h3><?php echo $category['name']; ?></h3>
@@ -86,18 +86,7 @@
 
 
 
-		// foreach ($listings as $key => $listing):
-		// 	$package_id = has_package($listing['user_id']);
-		// 	$total_listing = $this->db->get_where('package_purchased_history', array('id', $package_id))->row('number_of_listings');
-
-		// 	$listings_2 = $this->db->get_where('listing', array('user_id' => $listing['user_id']));
-		// 	foreach($listings_2 as $listing_2){
-		// 		$listing_number++;
-		// 		if($listing_number < $total_listing || $listing_number == $total_listing){
-		// 			echo 'show, ';
-		// 		}
-		// 	}
-		// endforeach;
+		
 
 
 		foreach ($listings as $key => $listing): ?>

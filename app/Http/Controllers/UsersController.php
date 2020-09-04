@@ -115,7 +115,6 @@ class UsersController extends Controller
     {
         //
         User::find($id)->forceDelete();
-        Blog::where('user_id',$id)->forceDelete();
         return redirect(route('users.index'));
     }
 }

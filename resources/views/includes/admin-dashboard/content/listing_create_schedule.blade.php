@@ -5,18 +5,18 @@
         <?php foreach($days as $day): ?>
         <div class="row" style="margin-bottom: 15px;">
             <div class="col-lg-6">
-                <label><?php echo get_phrase($day.'_opening'); ?></label>
+                <label><?php echo ($day.'_opening'); ?></label>
                 <select class="form-control selectboxit" name="<?php echo $day.'_opening'; ?>" id="<?php echo $day.'_opening'; ?>">
-                    <option value="closed"><?php echo get_phrase('closed'); ?></option>
+                    <option value="closed"><?php echo ('closed'); ?></option>
                     <?php for($i = 0; $i < 24; $i++): ?>
                     <option value="<?php echo $i; ?>"> <?php echo date('h a', strtotime("$i:00:00")) ?> </option>
                     <?php endfor; ?>
                 </select>
             </div>
             <div class="col-lg-6">
-                <label><?php echo get_phrase($day.'_closing'); ?></label>
+                <label><?php echo ($day.'_closing'); ?></label>
                 <select class="form-control selectboxit" name="<?php echo $day.'_closing'; ?>" id="<?php echo $day.'_closing'; ?>">
-                    <option value="closed"><?php echo get_phrase('closed'); ?></option>
+                    <option value="closed"><?php echo ('closed'); ?></option>
                     <?php for($i = 0; $i < 24; $i++): ?>
                     <option value="<?php echo $i; ?>"><?php echo date('h a', strtotime("$i:00:00")) ?></option>
                     <?php endfor; ?>

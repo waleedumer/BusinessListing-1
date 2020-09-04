@@ -26,6 +26,9 @@ class HomeController extends Controller
         $frontend_settings=FrontendSetting::all()->keyBy('type');
         $categories=Category::all();
         $listings=Listing::all();
+        // echo '<pre>';
+        // print_r($listings[0]->time);
+        // die();
         return view('frontend.index',compact(['page_data','frontend_settings','categories','listings']));
     }
     public function search(){

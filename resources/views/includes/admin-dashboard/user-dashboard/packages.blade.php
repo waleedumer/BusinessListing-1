@@ -51,10 +51,10 @@ $stripe = json_decode($stripe_settings);
                             <div class="album-images-count"> <?php echo $package['number_of_categories'].' '.'Categories'; ?> Per listing </div>
                         </footer>
                         <footer>
-                            <div class="album-images-count"> <?php echo $package['number_of_photos'].' '.'Photos'; ?>  Per listing </div>
+                            <div class="album-images-count"> <?php echo $package['number_of_photos'].' '.'Photos'); ?>  Per listing </div>
                         </footer>
                         <footer>
-                            <div class="album-images-count"> <?php echo $package['number_of_tags'].' '.'Tags'; ?> Per listing </div>
+                            <div class="album-images-count"> <?php echo $package['number_of_tags'].' '.'Tags'); ?> Per listing </div>
                         </footer>
                         <footer>
                             <div class="album-images-count"> <?php echo $package['ability_to_add_contact_form'] == 1 ? 'Availability of' : 'Unavailability of'; ?> Contact form </div>
@@ -85,7 +85,7 @@ $stripe = json_decode($stripe_settings);
                                 echo "<span style = 'color: red;'>".'Listings capacity limited'.', '.'Please choose a upper level package'."</span>";
                             }else{
                             ?>
-                            <a href="<?php echo url('user/free_package/free/'.auth()->user()->id.'/'.$package['id'].'/0') ?>" class="btn btn-primary mt-4 mb-2 btn-rounded">Choose plan</a>
+                            <a href="<?php echo url('user/free_package/free/'.$this->session->userdata('user_id').'/'.$package['id'].'/0') ?>" class="btn btn-primary mt-4 mb-2 btn-rounded">Choose plan</a>
                             <?php
                             }
                             }else{

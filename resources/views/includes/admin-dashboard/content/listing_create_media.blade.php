@@ -1,45 +1,45 @@
 <div class="form-group">
-    <label class="col-sm-3 control-label"><?php echo get_phrase('listing_thumbnail'); ?> <br/> <small>(460 X 306)</small> </label>
+    <label class="col-sm-3 control-label"><?php echo ('listing_thumbnail'); ?> <br/> <small>(460 X 306)</small> </label>
     <div class="col-sm-7">
         <div class="fileinput fileinput-new" data-provides="fileinput">
             <div class="fileinput-new thumbnail" style="width: 200px; height: 200px;" data-trigger="fileinput">
-                <img src="<?php echo base_url('uploads/placeholder.png'); ?>" alt="...">
+                <img src="<?php echo ('uploads/placeholder.png'); ?>" alt="...">
             </div>
             <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px"></div>
             <div>
         <span class="btn btn-white btn-file">
-          <span class="fileinput-new"><?php echo get_phrase('select_image'); ?></span>
-          <span class="fileinput-exists"><?php echo get_phrase('change'); ?></span>
+          <span class="fileinput-new"><?php echo ('select_image'); ?></span>
+          <span class="fileinput-exists"><?php echo ('change'); ?></span>
           <input type="file" name="listing_thumbnail" accept="image/*">
         </span>
-                <a href="#" class="btn btn-orange fileinput-exists" data-dismiss="fileinput"><?php echo get_phrase('remove'); ?></a>
+                <a href="#" class="btn btn-orange fileinput-exists" data-dismiss="fileinput"><?php echo ('remove'); ?></a>
             </div>
         </div>
     </div>
 </div>
 
 <div class="form-group">
-    <label class="col-sm-3 control-label"><?php echo get_phrase('listing_cover'); ?> <br/> <small>(1600 X 600)</small> </label>
+    <label class="col-sm-3 control-label"><?php echo ('listing_cover'); ?> <br/> <small>(1600 X 600)</small> </label>
     <div class="col-sm-7">
         <div class="fileinput fileinput-new" data-provides="fileinput">
             <div class="fileinput-new thumbnail" style="width: 200px; height: 200px;" data-trigger="fileinput">
-                <img src="<?php echo base_url('uploads/placeholder.png'); ?>" alt="...">
+                <img src="<?php echo ('uploads/placeholder.png'); ?>" alt="...">
             </div>
             <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px"></div>
             <div>
         <span class="btn btn-white btn-file">
-          <span class="fileinput-new"><?php echo get_phrase('select_image'); ?></span>
-          <span class="fileinput-exists"><?php echo get_phrase('change'); ?></span>
+          <span class="fileinput-new"><?php echo ('select_image'); ?></span>
+          <span class="fileinput-exists"><?php echo ('change'); ?></span>
           <input type="file" name="listing_cover" accept="image/*">
         </span>
-                <a href="#" class="btn btn-orange fileinput-exists" data-dismiss="fileinput"><?php echo get_phrase('remove'); ?></a>
+                <a href="#" class="btn btn-orange fileinput-exists" data-dismiss="fileinput"><?php echo ('remove'); ?></a>
             </div>
         </div>
     </div>
 </div>
 
 <div class="form-group">
-    <label for="video_provider" class="col-sm-3 control-label"><?php echo get_phrase('video_provider'); ?></label>
+    <label for="video_provider" class="col-sm-3 control-label"><?php echo ('video_provider'); ?></label>
     <div class="col-sm-7">
         <select name="video_provider" id = "video_provider" class="selectboxit" required>
             <option value="youtube">YouTube</option>
@@ -50,14 +50,14 @@
 </div>
 
 <div class="form-group">
-    <label for="video_url" class="col-sm-3 control-label"><?php echo get_phrase('video_url'); ?></label>
+    <label for="video_url" class="col-sm-3 control-label"><?php echo ('video_url'); ?></label>
     <div class="col-sm-7">
-        <input type="text" class="form-control" name="video_url" id="video_url" placeholder="<?php echo get_phrase('video_url'); ?>" required>
+        <input type="text" class="form-control" name="video_url" id="video_url" placeholder="<?php echo ('video_url'); ?>" required>
     </div>
 </div>
 
 <div class="form-group">
-    <label class="col-sm-3 control-label" for="listing_images"><?php echo get_phrase('listing_gallery_images'); ?><br/> <small>(960 X 640)</small> </label>
+    <label class="col-sm-3 control-label" for="listing_images"><?php echo ('listing_gallery_images'); ?><br/> <small>(960 X 640)</small> </label>
     <div class="col-sm-7">
         <div id="photos_area">
             <div class="row">
@@ -66,16 +66,16 @@
                         <div class="col-sm-12">
                             <div class="fileinput fileinput-new" data-provides="fileinput">
                                 <div class="fileinput-new thumbnail" style="width: 200px; height: 200px;" data-trigger="fileinput">
-                                    <img src="<?php echo base_url('uploads/placeholder.png'); ?>" alt="...">
+                                    <img src="<?php echo ('uploads/placeholder.png'); ?>" alt="...">
                                 </div>
                                 <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px"></div>
                                 <div>
                   <span class="btn btn-white btn-file">
-                    <span class="fileinput-new"><?php echo get_phrase('select_image'); ?></span>
-                    <span class="fileinput-exists"><?php echo get_phrase('change'); ?></span>
+                    <span class="fileinput-new"><?php echo ('select_image'); ?></span>
+                    <span class="fileinput-exists"><?php echo ('change'); ?></span>
                     <input type="file" name="listing_images[]" accept="image/*">
                   </span>
-                                    <a href="#" class="btn btn-orange fileinput-exists" data-dismiss="fileinput"><?php echo get_phrase('remove'); ?></a>
+                                    <a href="#" class="btn btn-orange fileinput-exists" data-dismiss="fileinput"><?php echo ('remove'); ?></a>
                                 </div>
                             </div>
                         </div>
@@ -93,16 +93,16 @@
                         <div class="col-sm-12">
                             <div class="fileinput fileinput-new" data-provides="fileinput">
                                 <div class="fileinput-new thumbnail" style="width: 200px; height: 200px;" data-trigger="fileinput">
-                                    <img src="<?php echo base_url('uploads/placeholder.png'); ?>" alt="...">
+                                    <img src="<?php echo ('uploads/placeholder.png'); ?>" alt="...">
                                 </div>
                                 <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px"></div>
                                 <div>
                   <span class="btn btn-white btn-file">
-                    <span class="fileinput-new"><?php echo get_phrase('select_image'); ?></span>
-                    <span class="fileinput-exists"><?php echo get_phrase('change'); ?></span>
+                    <span class="fileinput-new"><?php echo ('select_image'); ?></span>
+                    <span class="fileinput-exists"><?php echo ('change'); ?></span>
                     <input type="file" name="listing_images[]" accept="image/*">
                   </span>
-                                    <a href="#" class="btn btn-orange fileinput-exists" data-dismiss="fileinput"><?php echo get_phrase('remove'); ?></a>
+                                    <a href="#" class="btn btn-orange fileinput-exists" data-dismiss="fileinput"><?php echo ('remove'); ?></a>
                                 </div>
                             </div>
                         </div>

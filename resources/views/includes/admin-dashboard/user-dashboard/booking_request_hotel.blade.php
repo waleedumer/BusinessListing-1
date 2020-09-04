@@ -20,7 +20,8 @@
                     </thead>
                     <tbody>
                     <?php
-                    $bookings = auth()->user()->bookings()->latest();
+                    $this->db->order_by('id', 'DESC');
+                    $bookings = auth()->user()->bookings;
                     $count = 1;
                     foreach($bookings as $booking):
                     $listing_type = $booking->listing['listing_type'];?>
