@@ -29,7 +29,7 @@
                     <?php $count++; ?>
                     <tr>
                         <td><?php echo $count; ?></td>
-                        <td><a href="<?echo '#'//php echo route('blogs.show',$blog['id']); ?>" target="_blank"><?php echo $blog['title']; ?></a></td>
+                        <td><a href="<?echo php echo route('blogs.show',$blog['id']); ?>" target="_blank"><?php echo $blog['title']; ?></a></td>
                     <!-- <td class="text-center" style="max-width: 200px;">
                     <?php
                     $string = strip_tags($blog['blog_text']);
@@ -46,6 +46,7 @@
                     echo $string;
                     ?>
                         </td> -->
+
                         <td><?php echo ($blog->category->name); ?></td>
                         <td class="text-center">
                             <?php if($blog['status'] == 1): ?>

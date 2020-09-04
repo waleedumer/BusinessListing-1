@@ -6,10 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="09a18d2c-a329-466b-9831-3e3e6eb01fe8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UsersController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/frontend_header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/frontend_header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/frontend_header_category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/frontend_header_category.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/frontend_header_pricing.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/frontend_header_pricing.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/admin-dashboard/content/blogs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/admin-dashboard/content/blogs.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/admin-dashboard/content/blogs_create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/admin-dashboard/content/blogs_create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/admin-dashboard/content/users.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/admin-dashboard/content/users.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/admin-dashboard/modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/admin-dashboard/modal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/frontend/eu_coookie.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/frontend/eu_coookie.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/dashboard-header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/dashboard-header.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,19 +159,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xamp\htdocs\laralearn\resources\captcha\frontend" />
-      <recent name="C:\xamp\htdocs\laralearn\resources\sass\frontend" />
-      <recent name="C:\xamp\htdocs\laralearn\resources" />
-      <recent name="C:\xamp\htdocs\laralearn\resources\images\backend" />
-      <recent name="C:\xamp\htdocs\laralearn\resources\images\frontend" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xamp\htdocs\laralearn\resources\webfonts\backend" />
       <recent name="C:\xamp\htdocs\laralearn\resources\views\includes\admin-dashboard" />
       <recent name="C:\xamp\htdocs\laralearn\resources\views\includes\admin-dashboard\content" />
       <recent name="C:\xamp\htdocs\laralearn\resources\js\frontend" />
       <recent name="C:\xamp\htdocs\laralearn\resources\css\frontend" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xamp\htdocs\laralearn\resources\captcha\frontend" />
+      <recent name="C:\xamp\htdocs\laralearn\resources\sass\frontend" />
+      <recent name="C:\xamp\htdocs\laralearn\resources" />
+      <recent name="C:\xamp\htdocs\laralearn\resources\images\backend" />
+      <recent name="C:\xamp\htdocs\laralearn\resources\images\frontend" />
     </key>
   </component>
   <component name="RunManager">
@@ -191,7 +199,7 @@
       <workItem from="1598945430765" duration="33312000" />
       <workItem from="1599027775771" duration="48789000" />
       <workItem from="1599117634345" duration="50891000" />
-      <workItem from="1599207010826" duration="1359000" />
+      <workItem from="1599207010826" duration="11332000" />
     </task>
     <servers />
   </component>
@@ -227,10 +235,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1598641654874" />
-    <state x="339" y="162" width="672" height="677" key="run.anything.popup" timestamp="1599171810193">
+    <state x="339" y="162" width="672" height="677" key="run.anything.popup" timestamp="1599212788640">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="339" y="162" width="672" height="677" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1599171810193" />
+    <state x="339" y="162" width="672" height="677" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1599212788640" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1599170479971">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

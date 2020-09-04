@@ -74,14 +74,14 @@
         <div class="col-md-6">
             <div class="cookieDesc">
                 <p>
-                    <?php echo get_frontend_settings('cookie_note');?>
-                    <a class="link-cookie-policy" href="<?php echo site_url('home/cookie_policy'); ?>"><?php echo get_phrase('cookie_policy'); ?></a>
+                    <?php echo $cookie_note?>
+                    <a class="link-cookie-policy" href="<?php echo url('home/cookie_policy'); ?>">Cookie policy></a>
                 </p>
             </div>
         </div>
         <div class="col-md-2">
             <div class="cookieButton">
-                <a onclick="cookieAccept();"><?php echo get_phrase('accept'); ?></a>
+                <a onclick="cookieAccept();">Accept</a>
             </div>
         </div>
     </div>

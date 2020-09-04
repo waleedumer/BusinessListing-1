@@ -53,7 +53,7 @@
         window.scrollTo(0, 0);
         if (modal_type === 'generic_confirmation') {
             jQuery('#modal-generic_confirmation').modal('show', {backdrop: 'static'});
-            document.getElementById('update_link').setAttribute('href' , delete_url);
+            document.getElementById('update_link').setAttribute('action' , delete_url);
         }
         else{
             jQuery('#modal-4').modal('show', {backdrop: 'static'});
@@ -85,6 +85,9 @@
 </div>
 </form>
 <!-- (generic_confirmation Modal)-->
+<form action="#" id="update_link" method="post">
+    @csrf
+    @method('put')
 <div class="modal fade" id="modal-generic_confirmation">
     <div class="modal-dialog">
         <div class="modal-content" style="margin-top:100px;">
@@ -96,9 +99,10 @@
 
 
             <div class="modal-footer" style="margin:0px; border-top:0px; text-align:center;">
-                <a href="#" class="btn btn-danger" id="update_link">Yes</a>
+                <button class="btn btn-danger" type="submit">Yes</button>
                 <button type="button" class="btn btn-info" data-dismiss="modal">No</button>
             </div>
         </div>
     </div>
 </div>
+</form>

@@ -24,7 +24,7 @@
                                 <label for="parent" class="col-sm-2 control-label">Category</label>
 
                                 <div class="col-sm-9">
-                                    <select name="categories" id = "parent" class="select2" data-allow-clear="true" required>
+                                    <select name="category_id" id = "category_id" class="select2" data-allow-clear="true" required>
                                         <option value="">Select a Category</option>
                                         <?php foreach ($categories as $category): ?>
                                         <option value="<?php echo $category['id']; ?>"><?php echo $category['name']; ?></option>
@@ -87,7 +87,7 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                <input type="text" name="user_id" id="user_id" value="{{auth()->user()->id}}" hidden>
                             </div>
 
                         </div>
