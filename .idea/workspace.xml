@@ -6,13 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="09a18d2c-a329-466b-9831-3e3e6eb01fe8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserManageProfilesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserManageProfilesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserPricingsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserPricingsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Package.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Package.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/includes/admin-dashboard/modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/admin-dashboard/modal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/includes/admin-dashboard/user-dashboard/manage_profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/admin-dashboard/user-dashboard/manage_profile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/includes/admin-dashboard/user-dashboard/package_invoice.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/admin-dashboard/user-dashboard/package_invoice.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/frontend_header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/frontend_header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/frontend_header_category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/frontend_header_category.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/frontend_header_pricing.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/frontend_header_pricing.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,6 +191,7 @@
       <workItem from="1598945430765" duration="33312000" />
       <workItem from="1599027775771" duration="48789000" />
       <workItem from="1599117634345" duration="50891000" />
+      <workItem from="1599207010826" duration="1359000" />
     </task>
     <servers />
   </component>
